@@ -6,46 +6,48 @@ public class TestMain {
     public static void main(String[] args) {
     	
     	 ArrayList <Student> students  = new ArrayList<>();
-    	 String[] Names={"Ali","Veli","Halil","Can","Ayþe","Mehmet",      			   //30
-    	          "Cem","Sena","Mert","Yusuf","Melisa"," Zeynep","Hasan",
-    	          "Berke","Yasin","Murat","Hasan","Mert","Ahmet","Tugba",
-    	          "Gizem","Ozlem","Fatih","Ramiz","Ezel","Utku","Omer",
-    	          "Eylem","Aslý","Osman"};
-    	 String[] Surnames={"Ozturk","Ganiz","Bayraktar","Yilmaz","Taþ","Kerim",    	 //20
-    	            "Karaeski","Alemdar","Baþ","Yeter","Dundar","Yildiz","Kaya",
-    	            "Erden","Marmara","Ege","Karadeniz","Akdeniz","Doðan","Ulas"};
-    	 ArrayList <Courses> courses = new ArrayList<>();
+    	 ArrayList <Course> coursesList = new ArrayList<>();
+ //Databases   	  
+				    	 String[] Names={"Ali","Veli","Halil","Can","AyÅŸe","Mehmet",      			   //30
+				    	          "Cem","Sena","Mert","Yusuf","Melisa"," Zeynep","Hasan",
+				    	          "Berke","Yasin","Murat","Hasan","Mert","Ahmet","Tugba",
+				    	          "Gizem","Ozlem","Fatih","Ramiz","Ezel","Utku","Omer",
+				    	          "Eylem","AslÄ±","Osman"};
+				    	 String[] Surnames={"Ozturk","Ganiz","Bayraktar","Yilmaz","TaÅŸ","Kerim",    	 //20
+				    	            "Karaeski","Alemdar","BaÅŸ","Yeter","Dundar","Yildiz","Kaya",
+				    	            "Erden","Marmara","Ege","Karadeniz","Akdeniz","DoÄŸan","Ulas"};
+				    	 
+				    	 String coursesCodes[]={"CSE3063","CSE2025","CSE2023","CSE2138",                 			 //10
+				    	           "MATH2059","ISG121","ISG122","MATH2056","CSE2003","CSE2004"};
+				    	 
+				    	 String titles[]= {"Associate Professor","Doctor","Professor Doctor"
+				    			 	,"Assistant Professor","Assistant"};
+  
+    	 
     	 Random rand = new Random();
-    	    	
+ //random student creating   	    	
     	 for (int i=0; i<10; i++) {
-
-    	 int number = 1000000 + rand.nextInt(900000);
-    	 String name = Names[i] ;
-    	 String surname = Surnames[i];
-    	 int semester = rand.nextInt(8);
-    	 Student student = new Student(number, name, surname,semester);
-    	 students.add(student);
+    		 String studentName = Names[i] ;
+    		 String StudentSurname = Surnames[i];
+    		 int StudentNumber = 1000000 + rand.nextInt(900000);
+    		 int semester = 1+rand.nextInt(7);
+ //creating advisor for this student   		     		
+    		 String advName = Names[i];
+    		 String advSurname = Names[(int)rand.nextInt(20)];
+    		 String title = titles[(int)rand.nextInt(5)];
+    		 int roomLoc = rand.nextInt(500);
+    		 Instructor advisor = new Instructor(advName,advSurname,title,roomLoc);
+	 
+    		 Student student = new Student(studentName, StudentSurname,advisor,StudentNumber, semester);
+    		 students.add(student);
     	 } 
     	 
-       
-          
-        Courses course1 = new Courses(123,"essential","OOSD","??");
-              
-        System.out.print(course1.courseName+" ");
-        System.out.println(course1.category);  
-        courses.add(course1);
-         
-        Courses course2 = new electiveCourses(155,"elective","german","?") ;
-        courses.add(course2);
-        System.out.print(course2.courseName+" ");
-        System.out.println(course2.category);
-        
-        Courses course3 = new electiveCourses(2138,"essential","Sysem Programming","?") ;
-        courses.add(course3);
-        
-        System.out.print(course3.courseName+" ");
-        System.out.println(students);
-        
+ //test printing students
+        for (int i = 0; i < students.size();i++) 
+	      { 		      
+	          System.out.println(students.get(i).studentNumber +" "+students.get(i).name+
+	        		  " "+students.get(i).surname+ " "+students.get(i).semester); 		
+	      }   
 
     }
 }
