@@ -14,7 +14,7 @@ public class Student extends Person{
  
  //Student constructor. It inherits (name+surname) from Person class 
   public Student(String name,String surname, Instructor advisor,int studentNumber,int semester) {
-	  super();			// name + surname comes from Person
+	  super(name, surname);			// name + surname comes from Person
 	  this.advisor=advisor;
 	  this.studentNumber=studentNumber;
 	  this.semester=semester;	  

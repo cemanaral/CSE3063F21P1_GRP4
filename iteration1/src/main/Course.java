@@ -8,10 +8,10 @@ public abstract class Course {
     private String courseCode;
     private String name;
     private ArrayList <Course> prerequisites = new ArrayList<>();
-    // 6 days from Monday to Saturday(6 columns)
-    // and 10 hours(10 rows) if there is
-    // a lecture fill it with 1's else 0's
-    private int[][] schedule = new int[10][6];
+
+    private Schedule schedule = new Schedule();
+
+
     private int credit;
     private Instructor instructor;
     private ArrayList <Student> studentsTakingTheCourse = new ArrayList<>();
@@ -21,6 +21,13 @@ public abstract class Course {
       
         this.courseCode=courseCode;
         this.name=name;
+        this.credit=credit;
+
+    }
+
+    public Course( String courseCode, int credit){
+
+        this.courseCode=courseCode;
         this.credit=credit;
 
     }
@@ -41,11 +48,11 @@ public abstract class Course {
         this.name = name;
     }
 
-    public int[][] getSchedule() {
+    public Schedule getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(int[][] schedule) {
+    public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
     }
 
@@ -65,13 +72,16 @@ public abstract class Course {
         this.instructor = instructor;
     }
 
-    public void addStudent(Student student) {
+    public boolean addStudent(Student student) {
         this.studentsTakingTheCourse.add(student);
+        return true;
     }
 
     public void addPrerequisiteCourse(Course course) {
         this.prerequisites.add(course);
     }
+
+
 
     @Override
     public String toString() {
@@ -79,7 +89,7 @@ public abstract class Course {
                 "courseCode='" + courseCode + '\'' +
                 ", name='" + name + '\'' +
                 ", prerequisites=" + prerequisites +
-                ", schedule=" + Arrays.toString(schedule) +
+                ", schedule=" + schedule +
                 ", credit=" + credit +
                 ", instructor=" + instructor +
                 ", studentsTakingTheCourse=" + studentsTakingTheCourse +
