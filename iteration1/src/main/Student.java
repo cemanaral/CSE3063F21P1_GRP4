@@ -1,24 +1,31 @@
 package studentRegistirationSystem;
 
-public class Student {
+import java.util.ArrayList;
 
-
-  String name;
-  String surname;
-  public int number = (int)(1000000+Math.random()*1000000);
-  int semester = (int) (1+Math.random() * 7);
-  public String[] Names={"Ali","Veli","Halil","Can","Ayþe","Mehmet",         //30
-          "Cem","Sena","Mert","Yusuf","Melisa"," Zeynep","Hasan",
-          "Berke","Yasin","Murat","Hasan","Mert","Ahmet","Tugba",
-          "Gizem","Ozlem","Fatih","Ramiz","Ezel","Utku","Omer",
-          "Eyþan","Aslý","Osman"};
-
-  public Student(int number,String name,String surname, int semester) {
-	  super();
-      this.name = name;
-      this.surname = surname;
-      this.number = number;
-      this.semester = semester;
+public class Student extends Person{
+	
+//Student's attributes	
+	Instructor advisor;
+	int studentNumber;
+	int semester;
+	int[][] schedule;
+	Transcript transcript;
+	ArrayList <Course> currentCourses = new ArrayList<>();
+ 
+ //Student constructor. It inherits (name+surname) from Person class 
+  public Student(String name,String surname, Instructor advisor,int studentNumber,int semester) {
+	  super();			// name + surname comes from Person
+	  this.advisor=advisor;
+	  this.studentNumber=studentNumber;
+	  this.semester=semester;	  
+  }
+  
+  public boolean addToCurrentCourse(Course course){
+	  return true;
+  }
+  
+  public void  dropCourse(Course course) {
+	  
   }
 
   
