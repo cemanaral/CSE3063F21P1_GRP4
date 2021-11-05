@@ -1,4 +1,7 @@
-package studentRegistirationSystem;
+package main;
+
+import com.google.gson.Gson;
+
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -48,6 +51,11 @@ public class TestMain {
 	          System.out.println(students.get(i).studentNumber +" "+students.get(i).name+
 	        		  " "+students.get(i).surname+ " "+students.get(i).semester); 		
 	      }   
+
+        // gson test
+		Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6);
+        Gson gson = new Gson();
+		System.out.println(gson.toJson(c));
 
     }
 }

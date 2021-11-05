@@ -1,4 +1,4 @@
-package studentRegistirationSystem;
+package main;
 
 public class Transcript {
 	
