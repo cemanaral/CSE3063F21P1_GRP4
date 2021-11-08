@@ -21,8 +21,14 @@ public class TestMain {
 				    	            "Karaeski","Alemdar","Baş","Yeter","Dundar","Yildiz","Kaya",
 				    	            "Erden","Marmara","Ege","Karadeniz","Akdeniz","Doğan","Ulas"};
 				    	 
-				    	 String coursesCodes[]={"CSE3063","CSE2025","CSE2023","CSE2138",                 			 //10
-				    	           "MATH2059","ISG121","ISG122","MATH2056","CSE2003","CSE2004"};
+				    	String coursesCodes[]={"CSE3063","CSE2025","CSE2023","CSE2138",                 			 
+				    	           "MATH2059","ISG121","ISG122","MATH2056","CSE2003","CSE2004",			//40
+				    	           "CSE3061","CSE3072","CSE4081","CSE4082","ECON2003","ECON2004",
+				    	           "CSE2003","CSE2004","CSE3061","CSE3072","CSE4081","CSE4082",
+				    	           "CSE3067","CSE3076","CSE4089","CSE4090","CSE3003","CSE3004",
+				    	           "CSE3050","CSE3055","CSE4040","CSE4022","CSE2162","CSE2182",
+				    	           "CSE3129","CSE3127","CSE4124","CSE4250","CSE2223","CSE2250",};
+				    	 
 				    	 
 				    	 String titles[]= {"Associate Professor","Doctor","Professor Doctor"
 				    			 	,"Assistant Professor","Assistant"};
@@ -46,13 +52,6 @@ public class TestMain {
     		 students.add(student);
     	 } 
     	 
- //test printing students
-        for (int i = 0; i < students.size();i++) 
-	      {
-
-	          System.out.println(students.get(i).studentNumber +" "+students.get(i).name+
-	        		  " "+students.get(i).surname+ " "+students.get(i).semester + " " + students.get(i).advisor.name);
-	      }   
 
         // gson test
 		Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6);
@@ -65,6 +64,7 @@ public class TestMain {
 			coursesList.add(new ElectiveCourse(code, 1+rand.nextInt(11)));
 		}
 		System.out.println(Arrays.toString(coursesList.toArray()));
+		System.out.println(Arrays.toString(students.toArray()));
 
 
     }
