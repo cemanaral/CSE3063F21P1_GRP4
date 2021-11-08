@@ -37,12 +37,12 @@ public class TestMain {
     	 Random rand = new Random();
  //random student creating   	    	
     	 for (int i=0; i<10; i++) {
-    		 String studentName = Names[(int)rand.nextInt(20)];
+    		 String studentName = Names[(int)rand.nextInt(30)];
     		 String StudentSurname = Surnames[(int)rand.nextInt(20)];
     		 int StudentNumber = 1000000 + rand.nextInt(900000);
     		 int semester = 1+rand.nextInt(7);
  //creating advisor for this student   		     		
-    		 String advName = Names[(int)rand.nextInt(20)];
+    		 String advName = Names[(int)rand.nextInt(30)];
     		 String advSurname = Surnames[(int)rand.nextInt(20)];
     		 String title = titles[(int)rand.nextInt(5)];
     		 int roomLoc = rand.nextInt(500);
@@ -61,7 +61,7 @@ public class TestMain {
 
 		// create random courses
 		for (String code : coursesCodes) {
-			coursesList.add(new ElectiveCourse(code, 1+rand.nextInt(11)));
+			coursesList.add(new ElectiveCourse(code, 1+rand.nextInt(5)));
 		}
 		System.out.println(Arrays.toString(coursesList.toArray()));
 		System.out.println(Arrays.toString(students.toArray()));
