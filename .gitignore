@@ -1,4 +1,4 @@
 target/
 out/
-!**/src/main/**/target/
+!iteration1/src/StudentRegistrationSystem/**/target/
 !iteration1/src/test/**/target/
