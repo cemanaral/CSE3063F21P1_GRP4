@@ -1,6 +1,13 @@
 package StudentRegistrationSystem;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class RegistrationSystem {
@@ -21,7 +28,7 @@ public class RegistrationSystem {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Student> students  = new ArrayList<>();
         ArrayList <Course> coursesList = new ArrayList<>();
         //Databases
@@ -157,6 +164,15 @@ public class RegistrationSystem {
         System.out.println("cem's gpa: " + cem.getTranscript().getGpa());
 
         // ***testing cem***
+
+        Path filepath = Paths.get(
+                System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "input.json");
+        System.out.println(filepath);
+        JsonReader reader = new JsonReader(new FileReader(filepath.toString()));
+
+
+        JsonObject currentSemester = gson.fromJson(reader, JsonObject.class);
+        System.out.println("semester to be simulated: " + currentSemester.get("semester").getAsString());
     }
 
     public boolean checkPrerequisitesSatisfied(Student student) {
