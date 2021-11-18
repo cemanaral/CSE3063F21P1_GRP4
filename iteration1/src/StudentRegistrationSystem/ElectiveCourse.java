@@ -1,6 +1,6 @@
 package StudentRegistrationSystem;
 
-public class ElectiveCourse extends Course {
+public abstract class ElectiveCourse extends Course {
 
 
     public ElectiveCourse(String courseCode, String name, int credit) {

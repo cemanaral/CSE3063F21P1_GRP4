@@ -39,4 +39,9 @@ public class Transcript {
 		this.coursesTaken.put(course, letterGrade);
 	}
 
+	public HashMap<Course, String> getCoursesTaken() {
+		return coursesTaken;
+	}
+
+
 }

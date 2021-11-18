@@ -67,6 +67,9 @@ public abstract class Course {
         this.credit = credit;
     }
 
+    public void addPrerequisite(Course course) {
+        this.prerequisites.add(course);
+    }
   
 //To String Method
     @Override

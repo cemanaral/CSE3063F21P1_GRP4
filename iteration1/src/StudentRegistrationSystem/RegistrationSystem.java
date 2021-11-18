@@ -1,10 +1,7 @@
 package StudentRegistrationSystem;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class RegistrationSystem {
 
@@ -20,6 +17,7 @@ public class RegistrationSystem {
             }
             System.out.print('\n');
         }
+
     }
 
 
@@ -72,18 +70,18 @@ public class RegistrationSystem {
 
         // create random courses
         for (String code : coursesCodes) {
-            coursesList.add(new ElectiveCourse(code, 1+rand.nextInt(7)));
+            coursesList.add(new NonTechnicalElective(code, "example name",1+rand.nextInt(7)));
         }
         System.out.println(Arrays.toString(coursesList.toArray()));
         System.out.println(Arrays.toString(students.toArray()));
 
         // ***testing printSchedule***
         System.out.println("***testing printSchedule***");
-
-        coursesList.get(0).getSchedule().addLectureHour(2,1);
-        coursesList.get(0).getSchedule().addLectureHour(3,1);
-        coursesList.get(0).getSchedule().addLectureHour(5,3);
-        coursesList.get(0).getSchedule().addLectureHour(6,3);
+        Schedule schedule = new Schedule();
+        schedule.addLectureHour(0, 0);
+        schedule.addLectureHour(1, 0);
+        schedule.addLectureHour(2, 0);
+        coursesList.get(0).getSchedule().addLectureHour(schedule);
 
         RegistrationSystem registrationSystem = new RegistrationSystem();
         registrationSystem.printSchedule(coursesList.get(0).getSchedule());
@@ -98,31 +96,118 @@ public class RegistrationSystem {
         System.out.println(gson.toJson(c));
         System.out.println("***gson test***");
         // ***gson test***
+
+        // **transcript test***
+        System.out.println("**transcript test***");
+        Student s1 = students.get(0);
+        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(0), "AA");
+        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(1), "BB");
+        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(5), "BA");
+        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(2), "DC");
+        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(3), "FF");
+        System.out.println("gpa: " + s1.getTranscript().getGpa());
+        System.out.println("**transcript test***");
+        // **transcript test***
+
+        // **testing cem***
+
+        Course systems_programming = new CompulsoryCourse("CSE2138", "Systems Programming", 7);
+        Course digital_design = new CompulsoryCourse("CSE3215", "Digital Logic Design", 6);
+        Course computer_organization = new CompulsoryCourse("CSE3038", "Computer Organization", 7);
+        Course modelling = new CompulsoryCourse("IE3081", "Modelling and Discrete Simulation", 4);
+
+        computer_organization.addPrerequisite(digital_design);
+        computer_organization.addPrerequisite(systems_programming);
+
+        Schedule schedule_computer_organization = new Schedule();
+        schedule_computer_organization.addLectureHour(0, 0);
+        schedule_computer_organization.addLectureHour(1, 0);
+        computer_organization.setSchedule(schedule_computer_organization);
+
+        Schedule schedule_digital_design = new Schedule();
+        schedule_digital_design.addLectureHour(0, 0);
+        schedule_digital_design.addLectureHour(3, 0);
+        digital_design.setSchedule(schedule_digital_design);
+
+        Schedule schedule_systems_programming = new Schedule();
+        schedule_systems_programming.addLectureHour(0,1);
+        schedule_systems_programming.addLectureHour(1,1);
+        systems_programming.setSchedule(schedule_systems_programming);
+
+        Schedule schedule_modelling = new Schedule();
+        schedule_modelling.addLectureHour(4,0);
+        schedule_modelling.addLectureHour(5,0);
+        modelling.setSchedule(schedule_modelling);
+
+        Student cem = new Student("Cem", "Anaral", 150119761, 5);
+        cem.getTranscript().addCourseAndLetterGrade(systems_programming, "AA");
+        cem.getTranscript().addCourseAndLetterGrade(digital_design, "BA");
+
+        cem.getApprovalRequest().addCourse(computer_organization);
+        cem.getApprovalRequest().addCourse(modelling);
+
+        System.out.println("does cem satisfy prerequisites? " + registrationSystem.checkPrerequisitesSatisfied(cem));
+        System.out.println("does cem exceed credit limit? " + registrationSystem.checkCreditLimitExceeds(cem));
+        System.out.println("does cem have collision in his schedule? " + registrationSystem.checkHourCollision(cem));
+        registrationSystem.printSchedule(cem.getApprovalRequest().getSchedule());
+
+        Advisor advisor = new Advisor("Fatma", "Corut Ergin");
+        System.out.println("can cem select graduation project? " + advisor.checkEngineeringProjectStatus(cem));
+        System.out.println("does cem obey FTE rule? " + advisor.checkFteInFall(cem));
+        System.out.println("cem's gpa: " + cem.getTranscript().getGpa());
+
+        // ***testing cem***
     }
 
     public boolean checkPrerequisitesSatisfied(Student student) {
+        HashMap<Course, String> coursesTaken = student.getTranscript().getCoursesTaken();
 
-//please implement
+        for (Course course : student.getApprovalRequest().getCourses()) {
+            for (Course prerequisite : course.getPrerequisites()) {
+                // if prerequisite not in transcript or grade is FF or FD
+                if (!coursesTaken.containsKey(prerequisite)
+                        || List.of("FF","FD").contains(coursesTaken.get(prerequisite))) {
+                    // prerequisite not satisfied
+                    return false;
+                }
+            }
+        }
 
-
+        //  all prerequisites are satisfied
         return true;
     }
 
-    public boolean checkCreditLimitExceedes(Student student) {
+    public boolean checkCreditLimitExceeds(Student student) {
+        // a student can not take more than 40 credits
 
+        int sum = 0;
 
-//please implement
+        for (Course course : student.getApprovalRequest().getCourses()) {
+            sum += course.getCredit();
+        }
 
-        return true;
+        if (sum > 40) {
+            // limit exceeded
+            return true;
+        }
+
+        // limit not exceeded
+        return false;
+
     }
+
     public boolean checkHourCollision(Student student) {
-
-//please implement
-
-
-
-
-        return true;
+        int[][] studentMatrix = student.getApprovalRequest().getSchedule().getMatrix();
+        for (int i = 0; i < studentMatrix.length ; i++) {
+            for (int j = 0; j < studentMatrix[i].length; j++) {
+                // if there is collision
+                if (studentMatrix[i][j] > 1) {
+                    return true;
+                }
+            }
+        }
+        // no problem occurs
+        return false;
     }
 
 

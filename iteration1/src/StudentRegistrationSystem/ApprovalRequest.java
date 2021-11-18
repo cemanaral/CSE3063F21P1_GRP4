@@ -3,17 +3,18 @@ package StudentRegistrationSystem;
 import java.util.ArrayList;
 
 public class ApprovalRequest {
-// Attributes	
-	
+	// Attributes
 	private boolean isApproved;
 	private ArrayList <Course> courses = new ArrayList<Course>();
-	private Schedule schedule;
+	private Schedule schedule = new Schedule();
 	
 	
-//GETTERS AND SETTERS	
+	//GETTERS AND SETTERS
+
 	public boolean isApproved() {
 		return isApproved;
 	}
+
 	public void setApproved(boolean isApproved) {
 		this.isApproved = isApproved;
 	}
@@ -29,7 +30,16 @@ public class ApprovalRequest {
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
 	}
-	
+
+	public boolean addCourse(Course course) {
+		if (this.courses.contains(course))
+			return false;
+
+		this.courses.add(course);
+		this.schedule.addLectureHour(course.getSchedule());
+
+		return true;
+	}
 	
 
 }

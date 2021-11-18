@@ -1,6 +1,8 @@
 package StudentRegistrationSystem;
 
 
+import java.util.Arrays;
+
 public class Schedule {
         /* 5 days from Monday to Friday (5 columns)
        and 10 hours(10 rows) if there is
@@ -21,21 +23,40 @@ public class Schedule {
 	
     private int[][] matrix = new int[10][5];
     
-    public boolean addLectureHour(int hour, int day) {
-        // if the desired time slot is not available
-        if (this.matrix[hour][day] == 1) {
-            return false;
-        }
 
-        this.matrix[hour][day] = 1;
-        return true;
+
+
+
+    // for adding course schedule
+    public void addLectureHour(Schedule newSchedule) {
+
+        // each hour (row)
+        for (int i=0; i<newSchedule.getMatrix().length; i++) {
+
+            // each day (column)
+            for (int j=0; j<newSchedule.getMatrix()[i].length; j++) {
+                this.matrix[i][j] += newSchedule.getMatrix()[i][j];
+            }
+        }
+    }
+
+    // for adding by hand
+    public void addLectureHour(int hour, int day) {
+        if ((hour >= 0 && hour <= 9) && (day >= 0 && day <= 4)) {
+            matrix[hour][day]++;
+        } else {
+            throw new RuntimeException("matrix index in Schedule is out of bounds!");
+        }
     }
 
     public int[][] getMatrix() {
         return matrix;
     }
 
-    public void setMatrix(int[][] matrix) {
-        this.matrix = matrix;
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "matrix=" + Arrays.toString(matrix) +
+                '}';
     }
 }
