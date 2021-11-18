@@ -1,3 +1,22 @@
 {
+  "courses": {
+    "CompulsoryCourse": [
+      {"courseCode":"MATH1001","name":"Calculus I","credit":6, "semester": 1},
+      {"courseCode":"CSE1200","name":"Introduction to Computer Eng","credit":4, "semester": 1}
+    ],
+    "FacultyElective": [
+
+    ],
+    "TechnicalElective": [
+
+    ],
+    "NonTechnicalElective": [
+
+    ]
+  },
+  "prerequisites": {
+    "CSE3034": ["CSE1000", "CSE2000"],
+    "CSE4000": ["CSE3034"]
+  },
   "semester": "fall"
 }

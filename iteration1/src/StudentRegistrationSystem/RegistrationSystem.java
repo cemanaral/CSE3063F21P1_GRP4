@@ -1,5 +1,7 @@
 package StudentRegistrationSystem;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
@@ -171,8 +173,14 @@ public class RegistrationSystem {
         JsonReader reader = new JsonReader(new FileReader(filepath.toString()));
 
 
-        JsonObject currentSemester = gson.fromJson(reader, JsonObject.class);
-        System.out.println("semester to be simulated: " + currentSemester.get("semester").getAsString());
+        JsonObject inputJson = gson.fromJson(reader, JsonObject.class);
+        System.out.println("semester to be simulated: " + inputJson.get("semester").getAsString());
+
+
+        JsonElement compulsory_json = inputJson.get("courses").getAsJsonObject().get("CompulsoryCourse");
+        CompulsoryCourse[] compulsoryCourses= gson.fromJson(compulsory_json, CompulsoryCourse[].class);
+        Arrays.stream(compulsoryCourses).forEach(System.out::println);
+
     }
 
     public boolean checkPrerequisitesSatisfied(Student student) {

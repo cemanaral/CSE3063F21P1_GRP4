@@ -8,7 +8,8 @@ public abstract class Course {
     private String name;
     private int credit;
     private Schedule schedule = new Schedule();
-    private ArrayList <Course> prerequisites = new ArrayList<>();   
+    private ArrayList <Course> prerequisites = new ArrayList<>();
+    private int semester;
     
 // Constructors
     public Course( String courseCode, String name, int credit){
@@ -26,7 +27,14 @@ public abstract class Course {
 
     }
 
-// GETTERS AND SETTERS    
+    public Course(String courseCode, String name, int credit, int semester) {
+        this.courseCode = courseCode;
+        this.name = name;
+        this.credit = credit;
+        this.semester = semester;
+    }
+
+    // GETTERS AND SETTERS
     public ArrayList<Course> getPrerequisites() {
 		return prerequisites;
 	}
@@ -67,20 +75,30 @@ public abstract class Course {
         this.credit = credit;
     }
 
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
     public void addPrerequisite(Course course) {
         this.prerequisites.add(course);
     }
-  
+
+
 //To String Method
+
     @Override
     public String toString() {
         return "Course{" +
                 "courseCode='" + courseCode + '\'' +
                 ", name='" + name + '\'' +
-                ", prerequisites=" + prerequisites +
+                ", credit=" + credit +
                 ", schedule=" + schedule +
-                ", credit=" + credit +              
-                '}'+"\n";
-                
+                ", prerequisites=" + prerequisites +
+                ", semester=" + semester +
+                '}';
     }
 }
