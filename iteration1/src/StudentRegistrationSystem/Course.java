@@ -32,10 +32,16 @@ public abstract class Course {
         this.name = name;
         this.credit = credit;
         this.semester = semester;
+        this.prerequisites = new ArrayList<Course>();
+        this.schedule = new Schedule();
     }
 
     // GETTERS AND SETTERS
     public ArrayList<Course> getPrerequisites() {
+        if (prerequisites==null) {
+            prerequisites = new ArrayList<>();
+        }
+
 		return prerequisites;
 	}
 
@@ -60,6 +66,9 @@ public abstract class Course {
     }
 
     public Schedule getSchedule() {
+        if (schedule==null) {
+            schedule = new Schedule();
+        }
         return schedule;
     }
 

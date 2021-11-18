@@ -175,11 +175,16 @@ public class RegistrationSystem {
 
         JsonObject inputJson = gson.fromJson(reader, JsonObject.class);
         System.out.println("semester to be simulated: " + inputJson.get("semester").getAsString());
-
+//      {"courseCode":"","name":"","credit":, "semester": },
 
         JsonElement compulsory_json = inputJson.get("courses").getAsJsonObject().get("CompulsoryCourse");
         CompulsoryCourse[] compulsoryCourses= gson.fromJson(compulsory_json, CompulsoryCourse[].class);
+        // to prevent null schedule and null prerequisites
+        Arrays.stream(compulsoryCourses).forEach((course) -> course.setSchedule(new Schedule()));
+        Arrays.stream(compulsoryCourses).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
+        //***********************************************
         Arrays.stream(compulsoryCourses).forEach(System.out::println);
+        compulsoryCourses[0].getPrerequisites();
 
     }
 
