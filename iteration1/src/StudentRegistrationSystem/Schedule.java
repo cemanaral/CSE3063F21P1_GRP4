@@ -30,18 +30,12 @@ public class Schedule {
         this.matrix[hour][day] = 1;
         return true;
     }
-  
 
-    public void printSchedule() {
-        int hour = 9;
-        System.out.println("\n        Mon Tue Wed Thu Fri");
-        for (int i = 0; i < 10; i++) {
-            if (hour == 9) System.out.print(' ');
-            System.out.print(hour++ + ":00   ");
-            for (int j = 0; j < 5; j++) {
-                System.out.print(this.matrix[i][j] + "   ");
-            }
-            System.out.print('\n');
-        }
+    public int[][] getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
     }
 }

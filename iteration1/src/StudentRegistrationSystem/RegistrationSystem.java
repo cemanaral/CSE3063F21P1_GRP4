@@ -7,6 +7,22 @@ import java.util.List;
 import java.util.Random;
 
 public class RegistrationSystem {
+
+
+    public void printSchedule(Schedule schedule) {
+        int hour = 9;
+        System.out.println("\n        Mon Tue Wed Thu Fri");
+        for (int i = 0; i < 10; i++) {
+            if (hour == 9) System.out.print(' ');
+            System.out.print(hour++ + ":00   ");
+            for (int j = 0; j < 5; j++) {
+                System.out.print(schedule.getMatrix()[i][j] + "   ");
+            }
+            System.out.print('\n');
+        }
+    }
+
+
     public static void main(String[] args) {
         ArrayList<Student> students  = new ArrayList<>();
         ArrayList <Course> coursesList = new ArrayList<>();
@@ -52,12 +68,7 @@ public class RegistrationSystem {
 
 
 
-        // gson test
-        System.out.println("gson test***");
-		Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6);
-        Gson gson = new Gson();
-		System.out.println(gson.toJson(c));
-        System.out.println("gson test***");
+
 
         // create random courses
         for (String code : coursesCodes) {
@@ -66,6 +77,27 @@ public class RegistrationSystem {
         System.out.println(Arrays.toString(coursesList.toArray()));
         System.out.println(Arrays.toString(students.toArray()));
 
+        // ***testing printSchedule***
+        System.out.println("***testing printSchedule***");
+
+        coursesList.get(0).getSchedule().addLectureHour(2,1);
+        coursesList.get(0).getSchedule().addLectureHour(3,1);
+        coursesList.get(0).getSchedule().addLectureHour(5,3);
+        coursesList.get(0).getSchedule().addLectureHour(6,3);
+
+        RegistrationSystem registrationSystem = new RegistrationSystem();
+        registrationSystem.printSchedule(coursesList.get(0).getSchedule());
+
+        System.out.println("***testing printSchedule***");
+        // ***testing printSchedule***
+
+        // ***gson test***
+        System.out.println("***gson test***");
+        Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6);
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(c));
+        System.out.println("***gson test***");
+        // ***gson test***
     }
 
     public boolean checkPrerequisitesSatisfied(Student student) {
