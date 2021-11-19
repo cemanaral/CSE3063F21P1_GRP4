@@ -14,7 +14,7 @@ public class NonTechnicalElective extends ElectiveCourse {
 				"courseCode='" + getCourseCode() + '\'' +
 				", name='" + getName() + '\'' +
 				", credit=" + getCredit() +
-				", schedule=" + getSchedule() +
+				// ", schedule=" + getSchedule() +
 				", prerequisites=" + getPrerequisites() +
 				", semester=" + getSemester() +
 				'}';

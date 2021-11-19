@@ -75,6 +75,7 @@
       {"courseCode":"CSE4057","name":"Information Systems Security","credit":5, "semester": 8},
       {"courseCode":"CSE4095","name":"Special Topics in Computer Engineering III","credit":5, "semester": 8},
       {"courseCode":"CSE4026","name":"Introduction to Robotics and Control Theory","credit":5, "semester": 8}
+
     ],
     "NonTechnicalElective": [
       {"courseCode":"BUS1003","name":"Entrepreneurship and Innovation","credit":3, "semester": 2},
@@ -94,8 +95,24 @@
     ]
   },
   "prerequisites": {
-    "CSE3034": ["CSE1000", "CSE2000"],
-    "CSE4000": ["CSE3034"]
+    "CSE1242": ["CSE1241"],
+    "MATH2059": ["MATH1001"],
+    "CSE2225": ["CSE1242"],
+    "EE2031": ["PHYS1102"],
+    "CSE2246": ["CSE2225"],
+    "CSE2260": ["CSE1242"],
+    "EE2032": ["EE2031"],
+    "CSE3055": ["CSE2225"],
+    "CSE3033": ["CSE2225"],
+    "CSE3063": ["CSE1242"],
+    "IE3081": ["STAT2253"],
+    "CSE3044": ["CSE3055"],
+    "CSE3264": ["CSE2023"],
+    "CSE3038": ["CSE3215", "CSE2138"],
+    "CSE3048": ["MATH2055"],
+    "IE3235": ["MATH2256"],
+    "CSE4219": ["CSE3038"],
+    "CSE4288": ["STAT2253", "MATH2256"]
   },
   "semester": "fall"
 }

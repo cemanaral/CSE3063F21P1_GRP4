@@ -1,11 +1,9 @@
 package StudentRegistrationSystem;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Path;
@@ -185,8 +183,6 @@ public class RegistrationSystem {
         Arrays.stream(compulsoryCourses).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(compulsoryCourses).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
-        Arrays.stream(compulsoryCourses).forEach(System.out::println);
-
         // loading facultyElectives[]
         JsonElement faculty_json = inputJson.get("courses").getAsJsonObject().get("FacultyElective");
         FacultyElective[] facultyElectives= gson.fromJson(faculty_json, FacultyElective[].class);
@@ -194,7 +190,6 @@ public class RegistrationSystem {
         Arrays.stream(facultyElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(facultyElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
-        Arrays.stream(facultyElectives).forEach(System.out::println);
 
         // loading technicalElectives[]
         JsonElement technical_json = inputJson.get("courses").getAsJsonObject().get("TechnicalElective");
@@ -203,7 +198,6 @@ public class RegistrationSystem {
         Arrays.stream(technicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(technicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
-        Arrays.stream(technicalElectives).forEach(System.out::println);
 
 
 
@@ -214,7 +208,35 @@ public class RegistrationSystem {
         Arrays.stream(nontechnicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(nontechnicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
+
+        // loading prerequisites
+        Set<HashMap.Entry<String, JsonElement>> json_prerequisites = inputJson.get("prerequisites").getAsJsonObject().entrySet();
+
+        HashMap<String, String[]> prerequisiteTree = new HashMap<>();
+        for (HashMap.Entry<String, JsonElement> pair: json_prerequisites) {
+            String courseName = pair.getKey();
+            String[] prerequisites= gson.fromJson(pair.getValue(), String[].class);
+            prerequisiteTree.put(courseName, prerequisites);
+        }
+
+
+        // adding prerequisites to compulsory courses
+        for (String key : prerequisiteTree.keySet()) {
+            CompulsoryCourse course = registrationSystem.findCourseByName(key, compulsoryCourses);
+            for (String prerequisiteName : prerequisiteTree.get(key)) {
+                CompulsoryCourse prerequisiteCourse = registrationSystem.findCourseByName(prerequisiteName, compulsoryCourses);
+                course.addPrerequisite(prerequisiteCourse);
+            }
+        }
+
+        Arrays.stream(facultyElectives).forEach(System.out::println);
+        Arrays.stream(technicalElectives).forEach(System.out::println);
         Arrays.stream(nontechnicalElectives).forEach(System.out::println);
+        Arrays.stream(compulsoryCourses).forEach(System.out::println);
+
+
+
+
 
     }
 
@@ -267,6 +289,15 @@ public class RegistrationSystem {
         }
         // no problem occurs
         return false;
+    }
+
+    public CompulsoryCourse findCourseByName(String courseName,CompulsoryCourse[] courses) {
+        for (CompulsoryCourse course: courses) {
+            if (course.getCourseCode().equals(courseName) ){
+                return course;
+            }
+        }
+        throw new RuntimeException("Could not find " + courseName + " in compulsoryCourses[]!!!");
     }
 
 
