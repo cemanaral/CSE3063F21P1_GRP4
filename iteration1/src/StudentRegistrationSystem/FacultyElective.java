@@ -7,4 +7,15 @@ public class FacultyElective extends ElectiveCourse {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "FacultyElective{" +
+				"courseCode='" + getCourseCode() + '\'' +
+				", name='" + getName() + '\'' +
+				", credit=" + getCredit() +
+				", schedule=" + getSchedule() +
+				", prerequisites=" + getPrerequisites() +
+				", semester=" + getSemester() +
+				'}';
+	}
 }

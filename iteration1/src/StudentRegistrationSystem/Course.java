@@ -96,18 +96,4 @@ public abstract class Course {
         this.prerequisites.add(course);
     }
 
-
-//To String Method
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "courseCode='" + courseCode + '\'' +
-                ", name='" + name + '\'' +
-                ", credit=" + credit +
-                ", schedule=" + schedule +
-                ", prerequisites=" + prerequisites +
-                ", semester=" + semester +
-                '}';
-    }
 }

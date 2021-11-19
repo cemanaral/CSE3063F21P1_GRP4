@@ -172,19 +172,49 @@ public class RegistrationSystem {
         System.out.println(filepath);
         JsonReader reader = new JsonReader(new FileReader(filepath.toString()));
 
+        // Loading input.json
+        // {"courseCode":"","name":"","credit":, "semester": },
 
         JsonObject inputJson = gson.fromJson(reader, JsonObject.class);
         System.out.println("semester to be simulated: " + inputJson.get("semester").getAsString());
-//      {"courseCode":"","name":"","credit":, "semester": },
 
+        // loading compulsoryCourses[]
         JsonElement compulsory_json = inputJson.get("courses").getAsJsonObject().get("CompulsoryCourse");
         CompulsoryCourse[] compulsoryCourses= gson.fromJson(compulsory_json, CompulsoryCourse[].class);
         // to prevent null schedule and null prerequisites
         Arrays.stream(compulsoryCourses).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(compulsoryCourses).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
-        //***********************************************
+
         Arrays.stream(compulsoryCourses).forEach(System.out::println);
-        compulsoryCourses[0].getPrerequisites();
+
+        // loading facultyElectives[]
+        JsonElement faculty_json = inputJson.get("courses").getAsJsonObject().get("FacultyElective");
+        FacultyElective[] facultyElectives= gson.fromJson(faculty_json, FacultyElective[].class);
+        // to prevent null schedule and null prerequisites
+        Arrays.stream(facultyElectives).forEach((course) -> course.setSchedule(new Schedule()));
+        Arrays.stream(facultyElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
+
+        Arrays.stream(facultyElectives).forEach(System.out::println);
+
+        // loading technicalElectives[]
+        JsonElement technical_json = inputJson.get("courses").getAsJsonObject().get("TechnicalElective");
+        TechnicalElective[] technicalElectives= gson.fromJson(technical_json, TechnicalElective[].class);
+        // to prevent null schedule and null prerequisites
+        Arrays.stream(technicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
+        Arrays.stream(technicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
+
+        Arrays.stream(technicalElectives).forEach(System.out::println);
+
+
+
+        // loading nontechnicalElectives[]
+        JsonElement nontechnical_json = inputJson.get("courses").getAsJsonObject().get("NonTechnicalElective");
+        NonTechnicalElective[] nontechnicalElectives= gson.fromJson(nontechnical_json, NonTechnicalElective[].class);
+        // to prevent null schedule and null prerequisites
+        Arrays.stream(nontechnicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
+        Arrays.stream(nontechnicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
+
+        Arrays.stream(nontechnicalElectives).forEach(System.out::println);
 
     }
 

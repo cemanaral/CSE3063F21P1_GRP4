@@ -57,15 +57,39 @@
 
     ],
     "FacultyElective": [
+      {"courseCode":"MGT4082","name":"Advanced innovative Design Management for Entrepreneurship","credit":5, "semester": 7},
+      {"courseCode":"MGT4084","name":"Innovation and New Product Development Management","credit":5, "semester": 7},
+      {"courseCode":"MGT4088","name":"Project Management for Engineers","credit":5, "semester": 7},
 
+      {"courseCode":"CSE4062","name":"Introduction to Data Science and Analytics","credit":5, "semester": 8},
+      {"courseCode":"EE4062","name":"Introduction to Image Processing","credit":5, "semester": 8},
+      {"courseCode":"IE4055","name":"Design of Experiments","credit":5, "semester": 8}
     ],
     "TechnicalElective": [
-      {"courseCode":"CSE4075","name":"Wireless & Mobile Networks","credit":5, "semester": 8},
-      {"courseCode":"CSE4034","name":"Advanced Unix Programming","credit":5, "semester": 8},
-      {"courseCode":"CSE4061","name":"Compiler Design","credit":5, "semester": 8},
-      {"courseCode":"CSE4217","name":"Microprocessors","credit":5, "semester": 8}
+      {"courseCode":"CSE4086","name":"Mobile Device Programming","credit":5, "semester": 7},
+      {"courseCode":"CSE4084","name":"Multimedia Systems","credit":5, "semester": 7},
+      {"courseCode":"CSE4065","name":"Introduction to Computational Genomics","credit":5, "semester": 7},
+      {"courseCode":"CSE4083","name":"Computer Graphics","credit":5, "semester": 7},
+
+      {"courseCode":"CSE4053","name":"Information Systems: Analysis and Design","credit":5, "semester": 8},
+      {"courseCode":"CSE4057","name":"Information Systems Security","credit":5, "semester": 8},
+      {"courseCode":"CSE4095","name":"Special Topics in Computer Engineering III","credit":5, "semester": 8},
+      {"courseCode":"CSE4026","name":"Introduction to Robotics and Control Theory","credit":5, "semester": 8}
     ],
     "NonTechnicalElective": [
+      {"courseCode":"BUS1003","name":"Entrepreneurship and Innovation","credit":3, "semester": 2},
+      {"courseCode":"BUS1004","name":"Strategic Entrepreneurship","credit":3, "semester": 2},
+      {"courseCode":"BUS2005","name":"International Business","credit":3, "semester": 2},
+      {"courseCode":"CAS1001","name":"Self Management","credit":3, "semester": 2},
+      {"courseCode":"CAS1010","name":"Our Biosphere","credit":3, "semester": 2},
+      {"courseCode":"CAS1061","name":"Geometric Origami","credit":3, "semester": 2},
+
+
+      {"courseCode":"CAS2001","name":"Energy for Physical Activity","credit":3, "semester": 8},
+      {"courseCode":"CAS2002","name":"Human Performance and Nutrition","credit":3, "semester": 8},
+      {"courseCode":"CAS2003","name":"Cardiopulmonary Resuscitation and First Aid Basics","credit":3, "semester": 8},
+      {"courseCode":"CAS2004","name":"Interpersonal Relations and Communication","credit":3, "semester": 8},
+      {"courseCode":"CAS2005","name":"Trekking and Orienteering","credit":3, "semester": 8}
 
     ]
   },

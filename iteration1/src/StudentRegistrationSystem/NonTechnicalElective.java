@@ -7,4 +7,17 @@ public class NonTechnicalElective extends ElectiveCourse {
 		
 	}
 
+
+	@Override
+	public String toString() {
+		return "NonTechnicalElective{" +
+				"courseCode='" + getCourseCode() + '\'' +
+				", name='" + getName() + '\'' +
+				", credit=" + getCredit() +
+				", schedule=" + getSchedule() +
+				", prerequisites=" + getPrerequisites() +
+				", semester=" + getSemester() +
+				'}';
+	}
+
 }

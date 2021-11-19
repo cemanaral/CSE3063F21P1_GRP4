@@ -7,4 +7,18 @@ public class TechnicalElective extends ElectiveCourse{
 		
 	}
 
+	@Override
+	public String toString() {
+		return "TechnicalElective{" +
+				"courseCode='" + getCourseCode() + '\'' +
+				", name='" + getName() + '\'' +
+				", credit=" + getCredit() +
+				", schedule=" + getSchedule() +
+				", prerequisites=" + getPrerequisites() +
+				", semester=" + getSemester() +
+				'}';
+	}
+
 }
+
+
