@@ -12,20 +12,6 @@ public abstract class Course {
     private int semester;
     
 // Constructors
-    public Course( String courseCode, String name, int credit){
-      
-        this.courseCode=courseCode;
-        this.name=name;
-        this.credit=credit;
-
-    }
-
-    public Course( String courseCode, int credit){
-
-        this.courseCode=courseCode;
-        this.credit=credit;
-
-    }
 
     public Course(String courseCode, String name, int credit, int semester) {
         this.courseCode = courseCode;

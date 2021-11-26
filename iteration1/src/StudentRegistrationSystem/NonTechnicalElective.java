@@ -2,11 +2,9 @@ package StudentRegistrationSystem;
 
 public class NonTechnicalElective extends ElectiveCourse {
 
-	public NonTechnicalElective(String courseCode, String name, int credit) {
-		super(courseCode, name, credit);
-		
+	public NonTechnicalElective(String courseCode, String name, int credit, int semester) {
+		super(courseCode, name, credit, semester);
 	}
-
 
 	@Override
 	public String toString() {

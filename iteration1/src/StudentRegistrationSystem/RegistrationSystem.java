@@ -36,7 +36,7 @@ public class RegistrationSystem {
                 "Cem","Sena","Mert","Yusuf","Melisa","Zeynep","Hasan",
                 "Berke","Yasin","Murat","Hasan","Mert","Ahmet","Tugba",
                 "Gizem","Ozlem","Fatih","Ramiz","Ezel","Utku","Omer",
-                "Eylem","Asl�","Osman"};
+                "Eylem","Asl�","Osman"};    
         String[] Surnames={"Ozturk","Ganiz","Bayraktar","Yilmaz","Tas","Kerim",    	 //20
                 "Karaeski","Alemdar","Bas","Yeter","Dundar","Yildiz","Kaya",
                 "Erden","Marmara","Ege","Karadeniz","Akdeniz","Dogan","Ulas"};
@@ -77,7 +77,7 @@ public class RegistrationSystem {
 
         // create random courses
         for (String code : coursesCodes) {
-            coursesList.add(new NonTechnicalElective(code, "example name",1+rand.nextInt(7)));
+            coursesList.add(new NonTechnicalElective(code, "example name",1+rand.nextInt(7), 1+rand.nextInt(7)));
         }
         System.out.println(Arrays.toString(coursesList.toArray()));
         System.out.println(Arrays.toString(students.toArray()));
@@ -98,7 +98,7 @@ public class RegistrationSystem {
 
         // ***gson test***
         System.out.println("***gson test***");
-        Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6);
+        Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6, 5);
         Gson gson = new Gson();
         System.out.println(gson.toJson(c));
         System.out.println("***gson test***");
@@ -118,10 +118,10 @@ public class RegistrationSystem {
 
         // **testing cem***
 
-        Course systems_programming = new CompulsoryCourse("CSE2138", "Systems Programming", 7);
-        Course digital_design = new CompulsoryCourse("CSE3215", "Digital Logic Design", 6);
-        Course computer_organization = new CompulsoryCourse("CSE3038", "Computer Organization", 7);
-        Course modelling = new CompulsoryCourse("IE3081", "Modelling and Discrete Simulation", 4);
+        Course systems_programming = new CompulsoryCourse("CSE2138", "Systems Programming", 7, 4);
+        Course digital_design = new CompulsoryCourse("CSE3215", "Digital Logic Design", 6, 5);
+        Course computer_organization = new CompulsoryCourse("CSE3038", "Computer Organization", 7, 6);
+        Course modelling = new CompulsoryCourse("IE3081", "Modelling and Discrete Simulation", 4, 5);
 
         computer_organization.addPrerequisite(digital_design);
         computer_organization.addPrerequisite(systems_programming);
