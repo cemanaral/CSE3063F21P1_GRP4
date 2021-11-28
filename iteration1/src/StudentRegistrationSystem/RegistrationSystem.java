@@ -27,7 +27,6 @@ public class RegistrationSystem {
 
     }
 
-
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Student> students  = new ArrayList<>();
         ArrayList <Course> coursesList = new ArrayList<>();
@@ -60,19 +59,11 @@ public class RegistrationSystem {
             String StudentSurname = Surnames[(int)rand.nextInt(20)];
             int StudentNumber = 1000000 + rand.nextInt(900000);
             int semester = 1+rand.nextInt(7);
-            //creating advisor for this student
-    		 /*String advName = Names[(int)rand.nextInt(30)];
-    		 String advSurname = Surnames[(int)rand.nextInt(20)];
-    		 String title = titles[(int)rand.nextInt(5)];
-    		 int roomLoc = 200+rand.nextInt(100);
-    		 Instructor advisor = new Instructor(advName,advSurname,title,roomLoc);*/
+            
 
             Student student = new Student(studentName, StudentSurname,StudentNumber, semester);
             students.add(student);
         }
-
-
-
 
 
         // create random courses
@@ -199,8 +190,6 @@ public class RegistrationSystem {
         Arrays.stream(technicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
 
-
-
         // loading nontechnicalElectives[]
         JsonElement nontechnical_json = inputJson.get("courses").getAsJsonObject().get("NonTechnicalElective");
         NonTechnicalElective[] nontechnicalElectives= gson.fromJson(nontechnical_json, NonTechnicalElective[].class);
@@ -233,9 +222,6 @@ public class RegistrationSystem {
         Arrays.stream(technicalElectives).forEach(System.out::println);
         Arrays.stream(nontechnicalElectives).forEach(System.out::println);
         Arrays.stream(compulsoryCourses).forEach(System.out::println);
-
-
-
 
 
     }
