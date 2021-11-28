@@ -5,8 +5,8 @@ public abstract class Person {
 	private String surname;
 	
 	public Person(String name, String surname) {
-		this.name=name;
-		this.surname=surname;
+		this.name = name;
+		this.surname = surname;
 	}
 
 	public String getName() {
