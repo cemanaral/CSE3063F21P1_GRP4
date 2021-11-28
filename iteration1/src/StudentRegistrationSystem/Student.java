@@ -1,5 +1,4 @@
 package StudentRegistrationSystem;
-
 import java.util.ArrayList;
 
 public class Student extends Person {
@@ -17,9 +16,6 @@ public class Student extends Person {
         this.studentNumber = studentNumber;
         this.semester = semester;
     }
-
-
-
 
     @Override
     public String toString() {
