@@ -3,7 +3,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Path;
@@ -11,7 +10,6 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class RegistrationSystem {
-
 
     public void printSchedule(Schedule schedule) {
         int hour = 9;
@@ -24,24 +22,23 @@ public class RegistrationSystem {
             }
             System.out.print('\n');
         }
-
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<Student> students  = new ArrayList<>();
-        ArrayList <Course> coursesList = new ArrayList<>();
-        //Databases
-        String[] Names={"Ali","Veli","Halil","Can","Ayse","Mehmet",      			   //30
+        ArrayList<Student> studentList  = new ArrayList<>();
+        ArrayList <Course> courseList = new ArrayList<>();
+
+        String[] Names={"Ali","Veli","Halil","Can","Ayse","Mehmet",
                 "Cem","Sena","Mert","Yusuf","Melisa","Zeynep","Hasan",
                 "Berke","Yasin","Murat","Hasan","Mert","Ahmet","Tugba",
                 "Gizem","Ozlem","Fatih","Ramiz","Ezel","Utku","Omer",
-                "Eylem","Asl�","Osman"};    
-        String[] Surnames={"Ozturk","Ganiz","Bayraktar","Yilmaz","Tas","Kerim",    	 //20
+                "Eylem","Asli","Osman"};
+        String[] Surnames={"Ozturk","Ganiz","Bayraktar","Yilmaz","Tas","Kerim",
                 "Karaeski","Alemdar","Bas","Yeter","Dundar","Yildiz","Kaya",
                 "Erden","Marmara","Ege","Karadeniz","Akdeniz","Dogan","Ulas"};
 
-        String coursesCodes[]={"CSE3063","CSE2025","CSE2023","CSE2138",                 			 //10
-                "MATH2059","ISG121","ISG122","MATH2056","CSE2003","CSE2004",			//40
+        String courseCode[]={"CSE3063","CSE2025","CSE2023","CSE2138",
+                "MATH2059","ISG121","ISG122","MATH2056","CSE2003","CSE2004",
                 "CSE3061","CSE3072","CSE4081","CSE4082","ECON2003","ECON2004",
                 "CSE2003","CSE2004","CSE3061","CSE3072","CSE4081","CSE4082",
                 "CSE3067","CSE3076","CSE4089","CSE4090","CSE3003","CSE3004",
@@ -51,27 +48,29 @@ public class RegistrationSystem {
         String titles[]= {"Associate Professor","Doctor","Professor Doctor"
                 ,"Assistant Professor","Assistant"};
 
-
         Random rand = new Random();
-        //random student creating
+//random student creating
         for (int i=0; i<70; i++) {
             String studentName = Names[(int)rand.nextInt(30)];
             String StudentSurname = Surnames[(int)rand.nextInt(20)];
-            int StudentNumber = 1000000 + rand.nextInt(900000);
+            int StudentNumber = 150110000 + rand.nextInt(11000);
             int semester = 1+rand.nextInt(7);
-            
 
-            Student student = new Student(studentName, StudentSurname,StudentNumber, semester);
-            students.add(student);
+            Student student1 = new Student(studentName, StudentSurname,StudentNumber, semester);
+            studentList.add(student1);
         }
 
-
-        // create random courses
-        for (String code : coursesCodes) {
-            coursesList.add(new NonTechnicalElective(code, "example name",1+rand.nextInt(7), 1+rand.nextInt(7)));
+// create random courses
+        for (String code : courseCode) {
+            courseList.add(new NonTechnicalElective(code, "example name",1+rand.nextInt(7), 1+rand.nextInt(7)));
         }
-        System.out.println(Arrays.toString(coursesList.toArray()));
-        System.out.println(Arrays.toString(students.toArray()));
+
+        System.out.println("hello world");
+        int i =0;
+// test student list print
+        while(i<studentList.size()){
+            System.out.println(studentList.get(i).toString());i++;
+        }
 
         // ***testing printSchedule***
         System.out.println("***testing printSchedule***");
@@ -79,10 +78,10 @@ public class RegistrationSystem {
         schedule.addLectureHour(0, 0);
         schedule.addLectureHour(1, 0);
         schedule.addLectureHour(2, 0);
-        coursesList.get(0).getSchedule().addLectureHour(schedule);
+        courseList.get(0).getSchedule().addLectureHour(schedule);
 
         RegistrationSystem registrationSystem = new RegistrationSystem();
-        registrationSystem.printSchedule(coursesList.get(0).getSchedule());
+        registrationSystem.printSchedule(courseList.get(0).getSchedule());
 
         System.out.println("***testing printSchedule***");
         // ***testing printSchedule***
@@ -97,12 +96,12 @@ public class RegistrationSystem {
 
         // **transcript test***
         System.out.println("**transcript test***");
-        Student s1 = students.get(0);
-        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(0), "AA");
-        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(1), "BB");
-        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(5), "BA");
-        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(2), "DC");
-        s1.getTranscript().addCourseAndLetterGrade(coursesList.get(3), "FF");
+        Student s1 = studentList.get(0);
+        s1.getTranscript().addCourseAndLetterGrade(courseList.get(0), "AA");
+        s1.getTranscript().addCourseAndLetterGrade(courseList.get(1), "BB");
+        s1.getTranscript().addCourseAndLetterGrade(courseList.get(5), "BA");
+        s1.getTranscript().addCourseAndLetterGrade(courseList.get(2), "DC");
+        s1.getTranscript().addCourseAndLetterGrade(courseList.get(3), "FF");
         System.out.println("gpa: " + s1.getTranscript().getGpa());
         System.out.println("**transcript test***");
         // **transcript test***
@@ -161,44 +160,42 @@ public class RegistrationSystem {
         System.out.println(filepath);
         JsonReader reader = new JsonReader(new FileReader(filepath.toString()));
 
-        // Loading input.json
-        // {"courseCode":"","name":"","credit":, "semester": },
+// Loading input.json
+// {"courseCode":"","name":"","credit":, "semester": },
 
         JsonObject inputJson = gson.fromJson(reader, JsonObject.class);
         System.out.println("semester to be simulated: " + inputJson.get("semester").getAsString());
 
-        // loading compulsoryCourses[]
+// loading compulsoryCourses[]
         JsonElement compulsory_json = inputJson.get("courses").getAsJsonObject().get("CompulsoryCourse");
         CompulsoryCourse[] compulsoryCourses= gson.fromJson(compulsory_json, CompulsoryCourse[].class);
-        // to prevent null schedule and null prerequisites
+// to prevent null schedule and null prerequisites
         Arrays.stream(compulsoryCourses).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(compulsoryCourses).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
-        // loading facultyElectives[]
+// loading facultyElectives[]
         JsonElement faculty_json = inputJson.get("courses").getAsJsonObject().get("FacultyElective");
         FacultyElective[] facultyElectives= gson.fromJson(faculty_json, FacultyElective[].class);
-        // to prevent null schedule and null prerequisites
+// to prevent null schedule and null prerequisites
         Arrays.stream(facultyElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(facultyElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
-
-        // loading technicalElectives[]
+// loading technicalElectives[]
         JsonElement technical_json = inputJson.get("courses").getAsJsonObject().get("TechnicalElective");
         TechnicalElective[] technicalElectives= gson.fromJson(technical_json, TechnicalElective[].class);
-        // to prevent null schedule and null prerequisites
+// to prevent null schedule and null prerequisites
         Arrays.stream(technicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(technicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
-
-        // loading nontechnicalElectives[]
+// loading nontechnicalElectives[]
         JsonElement nontechnical_json = inputJson.get("courses").getAsJsonObject().get("NonTechnicalElective");
         NonTechnicalElective[] nontechnicalElectives= gson.fromJson(nontechnical_json, NonTechnicalElective[].class);
-        // to prevent null schedule and null prerequisites
+// to prevent null schedule and null prerequisites
         Arrays.stream(nontechnicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(nontechnicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
 
-        // loading prerequisites
+// loading prerequisites
         Set<HashMap.Entry<String, JsonElement>> json_prerequisites = inputJson.get("prerequisites").getAsJsonObject().entrySet();
 
         HashMap<String, String[]> prerequisiteTree = new HashMap<>();
@@ -209,7 +206,7 @@ public class RegistrationSystem {
         }
 
 
-        // adding prerequisites to compulsory courses
+// adding prerequisites to compulsory courses
         for (String key : prerequisiteTree.keySet()) {
             CompulsoryCourse course = registrationSystem.findCourseByName(key, compulsoryCourses);
             for (String prerequisiteName : prerequisiteTree.get(key)) {
