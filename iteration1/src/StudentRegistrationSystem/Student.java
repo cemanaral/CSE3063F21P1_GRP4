@@ -20,10 +20,12 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
-                "studentNumber=" + studentNumber +
-                ", semester=" + semester +
-                ", transcript=" + transcript +
-                ", approvalRequest=" + approvalRequest +
+                "studentNumber = " + studentNumber +
+                ", studentName = "+getName()+
+                ", studentSurname = "+getSurname()+
+                ", semester = " + semester +
+                ", transcript = " + transcript +
+                ", approvalRequest = " + approvalRequest +
                 '}';
     }
 
