@@ -6,6 +6,9 @@ public class ApprovalRequest {
 	// Attributes
 	private boolean isApproved;
 	private ArrayList <Course> courses = new ArrayList<Course>();
+
+
+
 	private Schedule schedule = new Schedule();
 	
 	
@@ -39,6 +42,14 @@ public class ApprovalRequest {
 		this.schedule.addLectureHour(course.getSchedule());
 
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "ApprovalRequest{" +
+				"isApproved=" + isApproved +
+				", CurrentCourses=" + courses +
+				", schedule=" + schedule +
+				'}';
 	}
 	
 

@@ -222,46 +222,59 @@ public class RegistrationSystem {
             int semester = 1+rand.nextInt(7);
             int j=rand.nextInt(9);
 
-            Student student1 = new Student(studentName, StudentSurname,StudentNumber, semester);
 
+            Student student1 = new Student(studentName, StudentSurname,StudentNumber, semester);
             studentList.add(student1);
 
-            // compulsory
+
+// compulsory
             for (CompulsoryCourse course: compulsoryCourses){
                String grade = gradeList[rand.nextInt(9) ];
+//adding taken courses
                 if (student1.getSemester()>course.getSemester()){
                     student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
-
+//adding current courses
+                if (student1.getSemester() == course.getSemester()){
+                    student1.getApprovalRequest().addCourse(course);
+                }
             }
-            // te
+// technical
             for (TechnicalElective course: technicalElectives){
                 String grade = gradeList[rand.nextInt(9) ];
                 if (student1.getSemester()>course.getSemester()){
                     student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
+                //adding current courses
+                if (student1.getSemester() == course.getSemester()){
+                    student1.getApprovalRequest().addCourse(course);
+                }
             }
-            // fte
+// fte
             for (FacultyElective course: facultyElectives){
                 String grade = gradeList[rand.nextInt(9) ];
                 if (student1.getSemester()>course.getSemester()){
                     student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
+                //adding current courses
+                if (student1.getSemester() == course.getSemester()){
+                    student1.getApprovalRequest().addCourse(course);
+                }
             }
-            // nte
+// nte
             for (NonTechnicalElective course: nontechnicalElectives){
                 String grade = gradeList[rand.nextInt(9) ];
                 if (student1.getSemester()>course.getSemester()){
                     student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
+                //adding current courses
+                if (student1.getSemester() == course.getSemester()){
+                    student1.getApprovalRequest().addCourse(course);
+                }
             }
         }
 
         studentList.forEach(System.out::println);
-
-
-
-
 
 
     }
@@ -280,7 +293,6 @@ public class RegistrationSystem {
             }
         }
 
-        //  all prerequisites are satisfied
         return true;
     }
 
