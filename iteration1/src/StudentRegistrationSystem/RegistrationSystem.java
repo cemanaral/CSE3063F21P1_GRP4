@@ -49,16 +49,7 @@ public class RegistrationSystem {
                 ,"Assistant Professor","Assistant"};
 
         Random rand = new Random();
-//random student creating
-        for (int i=0; i<70; i++) {
-            String studentName = Names[(int)rand.nextInt(30)];
-            String StudentSurname = Surnames[(int)rand.nextInt(20)];
-            int StudentNumber = 150110000 + rand.nextInt(11000);
-            int semester = 1+rand.nextInt(7);
 
-            Student student1 = new Student(studentName, StudentSurname,StudentNumber, semester);
-            studentList.add(student1);
-        }
 
 // create random courses
         for (String code : courseCode) {
@@ -66,11 +57,7 @@ public class RegistrationSystem {
         }
 
         System.out.println("hello world");
-        int i =0;
-// test student list print
-        while(i<studentList.size()){
-            System.out.println(studentList.get(i).toString());i++;
-        }
+
 
         // ***testing printSchedule***
         System.out.println("***testing printSchedule***");
@@ -95,8 +82,9 @@ public class RegistrationSystem {
         // ***gson test***
 
         // **transcript test***
+        /*
         System.out.println("**transcript test***");
-        Student s1 = studentList.get(0);
+        // Student s1 = studentList.get(0);
         s1.getTranscript().addCourseAndLetterGrade(courseList.get(0), "AA");
         s1.getTranscript().addCourseAndLetterGrade(courseList.get(1), "BB");
         s1.getTranscript().addCourseAndLetterGrade(courseList.get(5), "BA");
@@ -105,6 +93,8 @@ public class RegistrationSystem {
         System.out.println("gpa: " + s1.getTranscript().getGpa());
         System.out.println("**transcript test***");
         // **transcript test***
+
+        */
 
         // **testing cem***
 
@@ -219,6 +209,22 @@ public class RegistrationSystem {
         Arrays.stream(technicalElectives).forEach(System.out::println);
         Arrays.stream(nontechnicalElectives).forEach(System.out::println);
         Arrays.stream(compulsoryCourses).forEach(System.out::println);
+
+
+        int i =0;
+        //random student creating
+        for (i=0; i<70; i++) {
+            String studentName = Names[(int)rand.nextInt(30)];
+            String StudentSurname = Surnames[(int)rand.nextInt(20)];
+            int StudentNumber = 150110000 + rand.nextInt(11000);
+            int semester = 1+rand.nextInt(7);
+
+            Student student1 = new Student(studentName, StudentSurname,StudentNumber, semester);
+            studentList.add(student1);
+        }
+
+        studentList.forEach(System.out::println);
+
 
 
     }
