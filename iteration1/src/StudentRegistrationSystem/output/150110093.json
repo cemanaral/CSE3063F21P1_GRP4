@@ -1,0 +1,910 @@
+{
+  "studentNumber": 150110093,
+  "semester": 5,
+  "transcript": {
+    "coursesTaken": {
+      "CompulsoryCourse{courseCode='ECON2004', name='Engineering Economy', credit=4, prerequisites=[], semester=3}": "DD",
+      "CompulsoryCourse{courseCode='TRD 122', name='Turkish Language II', credit=2, prerequisites=[], semester=2}": "CC",
+      "NonTechnicalElective{courseCode='BUS1003', name='Entrepreneurship and Innovation', credit=3, prerequisites=[], semester=2}": "AA",
+      "CompulsoryCourse{courseCode='ATA122', name='Ataturk's Prin. & History II', credit=2, prerequisites=[], semester=2}": "DC",
+      "NonTechnicalElective{courseCode='CAS1061', name='Geometric Origami', credit=3, prerequisites=[], semester=2}": "DC",
+      "NonTechnicalElective{courseCode='CAS1010', name='Our Biosphere', credit=3, prerequisites=[], semester=2}": "BA",
+      "CompulsoryCourse{courseCode='STAT2253', name='Prob. and Stat. for Comp. Eng.', credit=5, prerequisites=[], semester=4}": "DD",
+      "CompulsoryCourse{courseCode='MATH2256', name='Linear Algebra for Comp. Eng.', credit=5, prerequisites=[], semester=2}": "BB",
+      "CompulsoryCourse{courseCode='EE2031', name='Electric Circuits', credit=5, prerequisites=[CompulsoryCourse{courseCode='PHYS1102', name='Physics II', credit=4, prerequisites=[], semester=2}], semester=3}": "BB",
+      "CompulsoryCourse{courseCode='EE2032', name='Electronics', credit=5, prerequisites=[CompulsoryCourse{courseCode='EE2031', name='Electric Circuits', credit=5, prerequisites=[CompulsoryCourse{courseCode='PHYS1102', name='Physics II', credit=4, prerequisites=[], semester=2}], semester=3}], semester=4}": "BA",
+      "CompulsoryCourse{courseCode='TRD121', name='Turkish Language I', credit=2, prerequisites=[], semester=1}": "AA",
+      "CompulsoryCourse{courseCode='MBG1201', name='Introduction to Modern Biology', credit=5, prerequisites=[], semester=1}": "CC",
+      "NonTechnicalElective{courseCode='CAS1001', name='Self Management', credit=3, prerequisites=[], semester=2}": "BA",
+      "CompulsoryCourse{courseCode='PHYS1103', name='Physics Lab I', credit=2, prerequisites=[], semester=1}": "FD",
+      "CompulsoryCourse{courseCode='MATH1001', name='Calculus I', credit=6, prerequisites=[], semester=1}": "DC",
+      "CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}": "BA",
+      "CompulsoryCourse{courseCode='CSE2225', name='Data Structures', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=3}": "FF",
+      "CompulsoryCourse{courseCode='CSE2138', name='Systems Programming', credit=7, prerequisites=[], semester=4}": "FD",
+      "CompulsoryCourse{courseCode='ATA121', name='Ataturk's Prin. & History I', credit=2, prerequisites=[], semester=1}": "AA",
+      "CompulsoryCourse{courseCode='PHYS1102', name='Physics II', credit=4, prerequisites=[], semester=2}": "FF",
+      "NonTechnicalElective{courseCode='BUS2005', name='International Business', credit=3, prerequisites=[], semester=2}": "BB",
+      "CompulsoryCourse{courseCode='CSE1200', name='Introduction to Computer Eng', credit=4, prerequisites=[], semester=1}": "DD",
+      "CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}": "CC",
+      "NonTechnicalElective{courseCode='BUS1004', name='Strategic Entrepreneurship', credit=3, prerequisites=[], semester=2}": "FD",
+      "CompulsoryCourse{courseCode='PHYS1101', name='Physics I', credit=4, prerequisites=[], semester=1}": "BA",
+      "CompulsoryCourse{courseCode='MATH1002', name='Calculus II', credit=6, prerequisites=[], semester=2}": "CB",
+      "CompulsoryCourse{courseCode='CSE2260', name='Principles of Prog. Languages', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=4}": "CB",
+      "CompulsoryCourse{courseCode='PHYS1104', name='Physics Lab II', credit=2, prerequisites=[], semester=2}": "BA",
+      "CompulsoryCourse{courseCode='MATH2055', name='Differential Equations', credit=4, prerequisites=[], semester=3}": "FF",
+      "CompulsoryCourse{courseCode='CSE2246', name='Analysis of Algorithms', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE2225', name='Data Structures', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=3}], semester=4}": "DD",
+      "CompulsoryCourse{courseCode='CSE2023', name='Discrete Comp. Structures', credit=6, prerequisites=[], semester=3}": "BA",
+      "CompulsoryCourse{courseCode='MATH2059', name='Numerical Methods', credit=4, prerequisites=[CompulsoryCourse{courseCode='MATH1001', name='Calculus I', credit=6, prerequisites=[], semester=1}], semester=3}": "CB"
+    }
+  },
+  "approvalRequest": {
+    "isApproved": false,
+    "courses": [
+      {
+        "courseCode": "CSE3055",
+        "name": "Database Systems",
+        "credit": 7,
+        "schedule": {
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "prerequisites": [
+          {
+            "courseCode": "CSE2225",
+            "name": "Data Structures",
+            "credit": 7,
+            "schedule": {
+              "matrix": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "prerequisites": [
+              {
+                "courseCode": "CSE1242",
+                "name": "Computer Programming II",
+                "credit": 6,
+                "schedule": {
+                  "matrix": [
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ]
+                  ]
+                },
+                "prerequisites": [
+                  {
+                    "courseCode": "CSE1241",
+                    "name": "Computer Programming I",
+                    "credit": 6,
+                    "schedule": {
+                      "matrix": [
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      ]
+                    },
+                    "prerequisites": [],
+                    "semester": 1
+                  }
+                ],
+                "semester": 2
+              }
+            ],
+            "semester": 3
+          }
+        ],
+        "semester": 5
+      },
+      {
+        "courseCode": "CSE3033",
+        "name": "Operating Systems",
+        "credit": 7,
+        "schedule": {
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "prerequisites": [
+          {
+            "courseCode": "CSE2225",
+            "name": "Data Structures",
+            "credit": 7,
+            "schedule": {
+              "matrix": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "prerequisites": [
+              {
+                "courseCode": "CSE1242",
+                "name": "Computer Programming II",
+                "credit": 6,
+                "schedule": {
+                  "matrix": [
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ]
+                  ]
+                },
+                "prerequisites": [
+                  {
+                    "courseCode": "CSE1241",
+                    "name": "Computer Programming I",
+                    "credit": 6,
+                    "schedule": {
+                      "matrix": [
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      ]
+                    },
+                    "prerequisites": [],
+                    "semester": 1
+                  }
+                ],
+                "semester": 2
+              }
+            ],
+            "semester": 3
+          }
+        ],
+        "semester": 5
+      },
+      {
+        "courseCode": "CSE3063",
+        "name": "Object-Oriented Software Desg.",
+        "credit": 5,
+        "schedule": {
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "prerequisites": [
+          {
+            "courseCode": "CSE1242",
+            "name": "Computer Programming II",
+            "credit": 6,
+            "schedule": {
+              "matrix": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "prerequisites": [
+              {
+                "courseCode": "CSE1241",
+                "name": "Computer Programming I",
+                "credit": 6,
+                "schedule": {
+                  "matrix": [
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+     

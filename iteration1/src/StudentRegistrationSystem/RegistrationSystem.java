@@ -1,5 +1,6 @@
 package StudentRegistrationSystem;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
@@ -78,7 +79,8 @@ public class RegistrationSystem {
         // ***gson test***
         System.out.println("***gson test***");
         Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6, 5);
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
         System.out.println(gson.toJson(c));
         System.out.println("***gson test***");
         // ***gson test***
