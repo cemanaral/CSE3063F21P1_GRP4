@@ -210,20 +210,57 @@ public class RegistrationSystem {
         Arrays.stream(nontechnicalElectives).forEach(System.out::println);
         Arrays.stream(compulsoryCourses).forEach(System.out::println);
 
+        String[] gradeList={"AA","BA","BB","CB","CC","DC","DD","FD","FF"};
+
 
         int i =0;
         //random student creating
-        for (i=0; i<70; i++) {
+        for (i=0; i<5; i++) {
             String studentName = Names[(int)rand.nextInt(30)];
             String StudentSurname = Surnames[(int)rand.nextInt(20)];
             int StudentNumber = 150110000 + rand.nextInt(11000);
             int semester = 1+rand.nextInt(7);
+            int j=rand.nextInt(9);
 
             Student student1 = new Student(studentName, StudentSurname,StudentNumber, semester);
+
             studentList.add(student1);
+
+            // compulsory
+            for (CompulsoryCourse course: compulsoryCourses){
+               String grade = gradeList[rand.nextInt(9) ];
+                if (student1.getSemester()>course.getSemester()){
+                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                }
+
+            }
+            // te
+            for (TechnicalElective course: technicalElectives){
+                String grade = gradeList[rand.nextInt(9) ];
+                if (student1.getSemester()>course.getSemester()){
+                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                }
+            }
+            // fte
+            for (FacultyElective course: facultyElectives){
+                String grade = gradeList[rand.nextInt(9) ];
+                if (student1.getSemester()>course.getSemester()){
+                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                }
+            }
+            // nte
+            for (NonTechnicalElective course: nontechnicalElectives){
+                String grade = gradeList[rand.nextInt(9) ];
+                if (student1.getSemester()>course.getSemester()){
+                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                }
+            }
         }
 
         studentList.forEach(System.out::println);
+
+
+
 
 
 
