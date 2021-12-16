@@ -3,8 +3,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -24,7 +24,7 @@ public class RegistrationSystem {
         }
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         ArrayList<Student> studentList  = new ArrayList<>();
         ArrayList <Course> courseList = new ArrayList<>();
 
@@ -299,12 +299,24 @@ public class RegistrationSystem {
                 );
 
 
+            }
 
-                }
+            System.out.println(gson.toJson(student1));
+            String filename = student1.getStudentNumber() + ".json";
+
+            Path path = Paths.get(
+                    System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "output", filename
+            );
+
+            File file = new File(path.toString());
+            // System.out.println(path.toString());
+            file.createNewFile();
+            gson.toJson(student1, new FileWriter(path.toString()));
 
 
-            System.out.println(student1.toString());
+            // System.out.println(student1.toString());
         }
+
 
 
 
