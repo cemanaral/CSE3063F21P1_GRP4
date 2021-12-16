@@ -3,8 +3,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
+import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -301,7 +303,7 @@ public class RegistrationSystem {
 
             }
 
-            System.out.println(gson.toJson(student1));
+            // System.out.println(gson.toJson(student1));
             String filename = student1.getStudentNumber() + ".json";
 
             Path path = Paths.get(
@@ -309,9 +311,11 @@ public class RegistrationSystem {
             );
 
             File file = new File(path.toString());
-            // System.out.println(path.toString());
             file.createNewFile();
-            gson.toJson(student1, new FileWriter(path.toString()));
+            // System.out.println(path.toString());
+            OutputStreamWriter output_stream = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
+            output_stream.write(StringEscapeUtils.unescapeJava(gson.toJson(student1)));
+
 
 
             // System.out.println(student1.toString());
