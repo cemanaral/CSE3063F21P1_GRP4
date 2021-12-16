@@ -24,9 +24,6 @@ public class Schedule {
     private int[][] matrix = new int[10][5];
     
 
-
-
-
     // for adding course schedule
     public void addLectureHour(Schedule newSchedule) {
 

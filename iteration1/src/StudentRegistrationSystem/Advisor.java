@@ -32,19 +32,12 @@ public class Advisor extends Person {
 		// if sum of completed credits is < 165,
 		// returns true
 
-		int sum = 0;
-		for (HashMap.Entry<Course, String> pair: student.getTranscript().getCoursesTaken().entrySet()) {
-			Course course = pair.getKey();
-			String letterGrade = pair.getValue();
+		if (student.getSemester() == 7 || student.getSemester() == 8) {
+			int sum = student.getTranscript().getTotalCredits();
 
-			if (!List.of("FF", "FD").contains(letterGrade)) {
-				sum += course.getCredit();
+			if (sum < 165) {
+				return false;
 			}
-
-		}
-
-		if (sum < 165) {
-			return false;
 		}
 		// no problem occurs
 		return true;

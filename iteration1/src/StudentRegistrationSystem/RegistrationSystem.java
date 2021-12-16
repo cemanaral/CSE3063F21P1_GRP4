@@ -280,17 +280,22 @@ public class RegistrationSystem {
                 }
             }
             if (registrationSystem.checkPrerequisitesSatisfied(student1)
-                    && !registrationSystem.checkCreditLimitExceeds(student1)) {
+                && !registrationSystem.checkCreditLimitExceeds(student1)
+                && advisor.checkFteInFall(student1)
+                && advisor.checkEngineeringProjectStatus(student1)) {
                 student1.getApprovalRequest().setApproved(true);
             }
             else {
                 student1.getApprovalRequest().setApproved(false);
 
                 System.out.println(
-                        String.format("prereq satisfied %s creditlimitexceeds %s studentno %d",
+                        String.format("prereq satisfied %s creditlimitexceeds %s checkFteInFall %s checkEngineeringProjectStatus %s total credits %d studentno %d",
                                 registrationSystem.checkPrerequisitesSatisfied(student1),
                                 !registrationSystem.checkCreditLimitExceeds(student1),
-                        student1.getStudentNumber())
+                                advisor.checkFteInFall(student1),
+                                advisor.checkEngineeringProjectStatus(student1),
+                                student1.getTranscript().getTotalCredits(),
+                                student1.getStudentNumber())
                 );
 
 
