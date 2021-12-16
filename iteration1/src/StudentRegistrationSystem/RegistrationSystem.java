@@ -205,17 +205,17 @@ public class RegistrationSystem {
             }
         }
 
-        Arrays.stream(facultyElectives).forEach(System.out::println);
+      /*  Arrays.stream(facultyElectives).forEach(System.out::println);
         Arrays.stream(technicalElectives).forEach(System.out::println);
         Arrays.stream(nontechnicalElectives).forEach(System.out::println);
-        Arrays.stream(compulsoryCourses).forEach(System.out::println);
+        Arrays.stream(compulsoryCourses).forEach(System.out::println);*/
 
         String[] gradeList={"AA","BA","BB","CB","CC","DC","DD","FD","FF"};
 
 
         int i =0;
         //random student creating
-        for (i=0; i<5; i++) {
+        for (i=0; i<30; i++) {
             String studentName = Names[(int)rand.nextInt(30)];
             String StudentSurname = Surnames[(int)rand.nextInt(20)];
             int StudentNumber = 150110000 + rand.nextInt(11000);
@@ -229,21 +229,26 @@ public class RegistrationSystem {
 
 // compulsory
             for (CompulsoryCourse course: compulsoryCourses){
+
                String grade = gradeList[rand.nextInt(9) ];
 //adding taken courses
                 if (student1.getSemester()>course.getSemester()){
-                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                  //  if (registrationSystem.checkSinglePrerequisiteSatisfied(student1, course))
+                        student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
 //adding current courses
                 if (student1.getSemester() == course.getSemester()){
                     student1.getApprovalRequest().addCourse(course);
                 }
+
+
             }
 // technical
             for (TechnicalElective course: technicalElectives){
                 String grade = gradeList[rand.nextInt(9) ];
                 if (student1.getSemester()>course.getSemester()){
-                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                 //   if (registrationSystem.checkSinglePrerequisiteSatisfied(student1, course))
+                        student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
                 //adding current courses
                 if (student1.getSemester() == course.getSemester()){
@@ -254,7 +259,8 @@ public class RegistrationSystem {
             for (FacultyElective course: facultyElectives){
                 String grade = gradeList[rand.nextInt(9) ];
                 if (student1.getSemester()>course.getSemester()){
-                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                   // if (registrationSystem.checkSinglePrerequisiteSatisfied(student1, course))
+                        student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
                 //adding current courses
                 if (student1.getSemester() == course.getSemester()){
@@ -265,20 +271,41 @@ public class RegistrationSystem {
             for (NonTechnicalElective course: nontechnicalElectives){
                 String grade = gradeList[rand.nextInt(9) ];
                 if (student1.getSemester()>course.getSemester()){
-                    student1.getTranscript().addCourseAndLetterGrade(course,grade);
+                   // if (registrationSystem.checkSinglePrerequisiteSatisfied(student1, course))
+                        student1.getTranscript().addCourseAndLetterGrade(course,grade);
                 }
                 //adding current courses
                 if (student1.getSemester() == course.getSemester()){
                     student1.getApprovalRequest().addCourse(course);
                 }
             }
+            if (registrationSystem.checkPrerequisitesSatisfied(student1)
+                    && !registrationSystem.checkCreditLimitExceeds(student1)) {
+                student1.getApprovalRequest().setApproved(true);
+            }
+            else {
+                student1.getApprovalRequest().setApproved(false);
+
+                System.out.println(
+                        String.format("prereq satisfied %s creditlimitexceeds %s studentno %d",
+                                registrationSystem.checkPrerequisitesSatisfied(student1),
+                                !registrationSystem.checkCreditLimitExceeds(student1),
+                        student1.getStudentNumber())
+                );
+
+
+
+                }
+
+
+            System.out.println(student1.toString());
         }
 
-        studentList.forEach(System.out::println);
+
 
 
     }
-
+    // checks for every course
     public boolean checkPrerequisitesSatisfied(Student student) {
         HashMap<Course, String> coursesTaken = student.getTranscript().getCoursesTaken();
 
@@ -295,6 +322,18 @@ public class RegistrationSystem {
 
         return true;
     }
+    // checks for single course
+    public boolean checkSinglePrerequisiteSatisfied(Student student, Course prerequisite) {
+        HashMap<Course, String> coursesTaken = student.getTranscript().getCoursesTaken();
+        // if course is in students transcript and not FF or FD
+        // return true
+        if (coursesTaken.containsKey(prerequisite)
+                && List.of("FF","FD").contains(coursesTaken.get(prerequisite))) {
+            return true;
+        }
+        return false;
+    }
+
 
     public boolean checkCreditLimitExceeds(Student student) {
         // a student can not take more than 40 credits
