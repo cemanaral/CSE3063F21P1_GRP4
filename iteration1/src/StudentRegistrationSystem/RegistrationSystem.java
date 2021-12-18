@@ -13,19 +13,23 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
+
+// it is a singleton
 public class RegistrationSystem {
 
-    public void printSchedule(Schedule schedule) {
-        int hour = 9;
-        System.out.println("\n        Mon Tue Wed Thu Fri");
-        for (int i = 0; i < 10; i++) {
-            if (hour == 9) System.out.print(' ');
-            System.out.print(hour++ + ":00   ");
-            for (int j = 0; j < 5; j++) {
-                System.out.print(schedule.getMatrix()[i][j] + "   ");
-            }
-            System.out.print('\n');
-        }
+
+    private static RegistrationSystem instance = null;
+
+    private RegistrationSystem() {
+
+    }
+
+
+    public static RegistrationSystem getInstance() {
+        if (instance == null)
+            instance = new RegistrationSystem();
+
+        return instance;
     }
 
     public static void main(String[] args) throws IOException {
@@ -49,7 +53,7 @@ public class RegistrationSystem {
 
 
 
-        RegistrationSystem registrationSystem = new RegistrationSystem();
+        RegistrationSystem registrationSystem = RegistrationSystem.getInstance();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Advisor advisor = new Advisor("Fatma", "Corut Ergin");
 
