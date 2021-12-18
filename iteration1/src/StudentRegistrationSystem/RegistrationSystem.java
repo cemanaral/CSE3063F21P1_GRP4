@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.*;
@@ -213,6 +214,16 @@ public class RegistrationSystem {
 
             // System.out.println(student1.toString());
         }
+
+        Path folderPath = Paths.get(
+                System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "output"
+        );
+        File theDir = new File(folderPath.toString());
+        if (theDir.exists()) {
+            FileUtils.deleteDirectory(theDir);
+        }
+        theDir.mkdir();
+
 
         // writing students to output folder as json objects
         for (Student std: studentList) {
