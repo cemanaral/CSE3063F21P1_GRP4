@@ -110,9 +110,9 @@ public class RegistrationSystem {
 
 // adding prerequisites to compulsory courses
         for (String key : prerequisiteTree.keySet()) {
-            CompulsoryCourse course = registrationSystem.findCourseByName(key, compulsoryCourses);
+            Course course = registrationSystem.findCourseByName(key, compulsoryCourses);
             for (String prerequisiteName : prerequisiteTree.get(key)) {
-                CompulsoryCourse prerequisiteCourse = registrationSystem.findCourseByName(prerequisiteName, compulsoryCourses);
+                Course prerequisiteCourse = registrationSystem.findCourseByName(prerequisiteName, compulsoryCourses);
                 course.addPrerequisite(prerequisiteCourse);
             }
         }
@@ -315,8 +315,8 @@ public class RegistrationSystem {
         return false;
     }
 */
-    public CompulsoryCourse findCourseByName(String courseName,CompulsoryCourse[] courses) {
-        for (CompulsoryCourse course: courses) {
+    public Course findCourseByName(String courseName, Course[] courses) {
+        for (Course course: courses) {
             if (course.getCourseCode().equals(courseName) ){
                 return course;
             }
