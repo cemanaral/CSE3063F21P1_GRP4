@@ -64,90 +64,20 @@ public class RegistrationSystem {
 
         // ***testing printSchedule***
         System.out.println("***testing printSchedule***");
-        Schedule schedule = new Schedule();
-        schedule.addLectureHour(0, 0);
-        schedule.addLectureHour(1, 0);
-        schedule.addLectureHour(2, 0);
-        courseList.get(0).getSchedule().addLectureHour(schedule);
 
         RegistrationSystem registrationSystem = new RegistrationSystem();
-        registrationSystem.printSchedule(courseList.get(0).getSchedule());
 
         System.out.println("***testing printSchedule***");
         // ***testing printSchedule***
 
-        // ***gson test***
-        System.out.println("***gson test***");
-        Course c = new CompulsoryCourse("CSE3063", "Object Oriented Software Design", 6, 5);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        System.out.println(gson.toJson(c));
-        System.out.println("***gson test***");
-        // ***gson test***
 
-        // **transcript test***
-        /*
-        System.out.println("**transcript test***");
-        // Student s1 = studentList.get(0);
-        s1.getTranscript().addCourseAndLetterGrade(courseList.get(0), "AA");
-        s1.getTranscript().addCourseAndLetterGrade(courseList.get(1), "BB");
-        s1.getTranscript().addCourseAndLetterGrade(courseList.get(5), "BA");
-        s1.getTranscript().addCourseAndLetterGrade(courseList.get(2), "DC");
-        s1.getTranscript().addCourseAndLetterGrade(courseList.get(3), "FF");
-        System.out.println("gpa: " + s1.getTranscript().getGpa());
-        System.out.println("**transcript test***");
-        // **transcript test***
 
-        */
-
-        // **testing cem***
-
-        Course systems_programming = new CompulsoryCourse("CSE2138", "Systems Programming", 7, 4);
-        Course digital_design = new CompulsoryCourse("CSE3215", "Digital Logic Design", 6, 5);
-        Course computer_organization = new CompulsoryCourse("CSE3038", "Computer Organization", 7, 6);
-        Course modelling = new CompulsoryCourse("IE3081", "Modelling and Discrete Simulation", 4, 5);
-
-        computer_organization.addPrerequisite(digital_design);
-        computer_organization.addPrerequisite(systems_programming);
-
-        Schedule schedule_computer_organization = new Schedule();
-        schedule_computer_organization.addLectureHour(0, 0);
-        schedule_computer_organization.addLectureHour(1, 0);
-        computer_organization.setSchedule(schedule_computer_organization);
-
-        Schedule schedule_digital_design = new Schedule();
-        schedule_digital_design.addLectureHour(0, 0);
-        schedule_digital_design.addLectureHour(3, 0);
-        digital_design.setSchedule(schedule_digital_design);
-
-        Schedule schedule_systems_programming = new Schedule();
-        schedule_systems_programming.addLectureHour(0,1);
-        schedule_systems_programming.addLectureHour(1,1);
-        systems_programming.setSchedule(schedule_systems_programming);
-
-        Schedule schedule_modelling = new Schedule();
-        schedule_modelling.addLectureHour(4,0);
-        schedule_modelling.addLectureHour(5,0);
-        modelling.setSchedule(schedule_modelling);
-
-        Student cem = new Student("Cem", "Anaral", 150119761, 5);
-        cem.getTranscript().addCourseAndLetterGrade(systems_programming, "AA");
-        cem.getTranscript().addCourseAndLetterGrade(digital_design, "BA");
-
-        cem.getApprovalRequest().addCourse(computer_organization);
-        cem.getApprovalRequest().addCourse(modelling);
-
-        System.out.println("does cem satisfy prerequisites? " + registrationSystem.checkPrerequisitesSatisfied(cem));
-        System.out.println("does cem exceed credit limit? " + registrationSystem.checkCreditLimitExceeds(cem));
-        System.out.println("does cem have collision in his schedule? " + registrationSystem.checkHourCollision(cem));
-        registrationSystem.printSchedule(cem.getApprovalRequest().getSchedule());
 
         Advisor advisor = new Advisor("Fatma", "Corut Ergin");
-        System.out.println("can cem select graduation project? " + advisor.checkEngineeringProjectStatus(cem));
-        System.out.println("does cem obey FTE rule? " + advisor.checkFteInFall(cem));
-        System.out.println("cem's gpa: " + cem.getTranscript().getGpa());
 
-        // ***testing cem***
+
 
         Path filepath = Paths.get(
                 System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "input.json");
@@ -164,28 +94,28 @@ public class RegistrationSystem {
         JsonElement compulsory_json = inputJson.get("courses").getAsJsonObject().get("CompulsoryCourse");
         CompulsoryCourse[] compulsoryCourses= gson.fromJson(compulsory_json, CompulsoryCourse[].class);
 // to prevent null schedule and null prerequisites
-        Arrays.stream(compulsoryCourses).forEach((course) -> course.setSchedule(new Schedule()));
+        // Arrays.stream(compulsoryCourses).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(compulsoryCourses).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
 // loading facultyElectives[]
         JsonElement faculty_json = inputJson.get("courses").getAsJsonObject().get("FacultyElective");
         FacultyElective[] facultyElectives= gson.fromJson(faculty_json, FacultyElective[].class);
 // to prevent null schedule and null prerequisites
-        Arrays.stream(facultyElectives).forEach((course) -> course.setSchedule(new Schedule()));
+        // Arrays.stream(facultyElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(facultyElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
 // loading technicalElectives[]
         JsonElement technical_json = inputJson.get("courses").getAsJsonObject().get("TechnicalElective");
         TechnicalElective[] technicalElectives= gson.fromJson(technical_json, TechnicalElective[].class);
 // to prevent null schedule and null prerequisites
-        Arrays.stream(technicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
+        // Arrays.stream(technicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(technicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
 // loading nontechnicalElectives[]
         JsonElement nontechnical_json = inputJson.get("courses").getAsJsonObject().get("NonTechnicalElective");
         NonTechnicalElective[] nontechnicalElectives= gson.fromJson(nontechnical_json, NonTechnicalElective[].class);
 // to prevent null schedule and null prerequisites
-        Arrays.stream(nontechnicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
+        // Arrays.stream(nontechnicalElectives).forEach((course) -> course.setSchedule(new Schedule()));
         Arrays.stream(nontechnicalElectives).forEach((course) -> course.setPrerequisites(new ArrayList<>()));
 
 
@@ -305,8 +235,16 @@ public class RegistrationSystem {
 
             }
 
+
+
+
+            // System.out.println(student1.toString());
+        }
+
+        // writing students to output folder as json objects
+        for (Student std: studentList) {
             // System.out.println(gson.toJson(student1));
-            String filename = student1.getStudentNumber() + ".json";
+            String filename = std.getStudentNumber() + ".json";
 
             Path path = Paths.get(
                     System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "output", filename
@@ -316,11 +254,9 @@ public class RegistrationSystem {
             file.createNewFile();
             // System.out.println(path.toString());
             OutputStreamWriter output_stream = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
-            output_stream.write(StringEscapeUtils.unescapeJava(gson.toJson(student1)));
+            output_stream.write(StringEscapeUtils.unescapeJava(gson.toJson(std)));
+            output_stream.close();
 
-
-
-            // System.out.println(student1.toString());
         }
 
 
@@ -376,7 +312,7 @@ public class RegistrationSystem {
         return false;
 
     }
-
+/*
     public boolean checkHourCollision(Student student) {
         int[][] studentMatrix = student.getApprovalRequest().getSchedule().getMatrix();
         for (int i = 0; i < studentMatrix.length ; i++) {
@@ -390,7 +326,7 @@ public class RegistrationSystem {
         // no problem occurs
         return false;
     }
-
+*/
     public CompulsoryCourse findCourseByName(String courseName,CompulsoryCourse[] courses) {
         for (CompulsoryCourse course: courses) {
             if (course.getCourseCode().equals(courseName) ){

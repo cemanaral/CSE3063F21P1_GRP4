@@ -1,0 +1,70 @@
+{
+  "studentNumber": 150117206,
+  "semester": 1,
+  "transcript": {
+    "coursesTaken": {}
+  },
+  "approvalRequest": {
+    "isApproved": true,
+    "courses": [
+      {
+        "courseCode": "MATH1001",
+        "name": "Calculus I",
+        "credit": 6,
+        "prerequisites": [],
+        "semester": 1
+      },
+      {
+        "courseCode": "CSE1200",
+        "name": "Introduction to Computer Eng",
+        "credit": 4,
+        "prerequisites": [],
+        "semester": 1
+      },
+      {
+        "courseCode": "CSE1241",
+        "name": "Computer Programming I",
+        "credit": 6,
+        "prerequisites": [],
+        "semester": 1
+      },
+      {
+        "courseCode": "PHYS1101",
+        "name": "Physics I",
+        "credit": 4,
+        "prerequisites": [],
+        "semester": 1
+      },
+      {
+        "courseCode": "PHYS1103",
+        "name": "Physics Lab I",
+        "credit": 2,
+        "prerequisites": [],
+        "semester": 1
+      },
+      {
+        "courseCode": "ATA121",
+        "name": "Ataturk's Prin. & History I",
+        "credit": 2,
+        "prerequisites": [],
+        "semester": 1
+      },
+      {
+        "courseCode": "MBG1201",
+        "name": "Introduction to Modern Biology",
+        "credit": 5,
+        "prerequisites": [],
+        "semester": 1
+      },
+      {
+        "courseCode": "TRD121",
+        "name": "Turkish Language I",
+        "credit": 2,
+        "prerequisites": [],
+        "semester": 1
+      }
+    ]
+  },
+  "name": "Tugba",
+  "surname": "Akdeniz"
+}
