@@ -1,5 +1,6 @@
 target/
 out/
-src/StudentRegistrationSystem/output/*
+iteration1/src/StudentRegistrationSystem/output/*.json
+iteration2/src/StudentRegistrationSystem/output/*.json
 
 
