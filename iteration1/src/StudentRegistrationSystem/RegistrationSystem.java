@@ -29,7 +29,6 @@ public class RegistrationSystem {
 
     public static void main(String[] args) throws IOException {
         ArrayList<Student> studentList  = new ArrayList<>();
-        ArrayList <Course> courseList = new ArrayList<>();
 
         String[] Names={"Ali","Veli","Halil","Can","Ayse","Mehmet",
                 "Cem","Sena","Mert","Yusuf","Melisa","Zeynep","Hasan",
@@ -40,13 +39,7 @@ public class RegistrationSystem {
                 "Karaeski","Alemdar","Bas","Yeter","Dundar","Yildiz","Kaya",
                 "Erden","Marmara","Ege","Karadeniz","Akdeniz","Dogan","Ulas"};
 
-        String courseCode[]={"CSE3063","CSE2025","CSE2023","CSE2138",
-                "MATH2059","ISG121","ISG122","MATH2056","CSE2003","CSE2004",
-                "CSE3061","CSE3072","CSE4081","CSE4082","ECON2003","ECON2004",
-                "CSE2003","CSE2004","CSE3061","CSE3072","CSE4081","CSE4082",
-                "CSE3067","CSE3076","CSE4089","CSE4090","CSE3003","CSE3004",
-                "CSE3050","CSE3055","CSE4040","CSE4022","CSE2162","CSE2182",
-                "CSE3129","CSE3127","CSE4124","CSE4250","CSE2223","CSE2250",};
+
 
         String titles[]= {"Associate Professor","Doctor","Professor Doctor"
                 ,"Assistant Professor","Assistant"};
@@ -54,30 +47,10 @@ public class RegistrationSystem {
         Random rand = new Random();
 
 
-// create random courses
-        for (String code : courseCode) {
-            courseList.add(new NonTechnicalElective(code, "example name",1+rand.nextInt(7), 1+rand.nextInt(7)));
-        }
-
-        System.out.println("hello world");
-
-
-        // ***testing printSchedule***
-        System.out.println("***testing printSchedule***");
 
         RegistrationSystem registrationSystem = new RegistrationSystem();
-
-        System.out.println("***testing printSchedule***");
-        // ***testing printSchedule***
-
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-
-
-
         Advisor advisor = new Advisor("Fatma", "Corut Ergin");
-
-
 
         Path filepath = Paths.get(
                 System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "input.json");

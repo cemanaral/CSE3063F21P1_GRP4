@@ -1,0 +1,165 @@
+{
+  "studentNumber": 150114714,
+  "semester": 6,
+  "transcript": {
+    "coursesTaken": {
+      "CompulsoryCourse{courseCode='EE2031', name='Electric Circuits', credit=5, prerequisites=[CompulsoryCourse{courseCode='PHYS1102', name='Physics II', credit=4, prerequisites=[], semester=2}], semester=3}": "CB",
+      "CompulsoryCourse{courseCode='CSE2138', name='Systems Programming', credit=7, prerequisites=[], semester=4}": "AA",
+      "NonTechnicalElective{courseCode='CAS1061', name='Geometric Origami', credit=3, prerequisites=[], semester=2}": "AA",
+      "CompulsoryCourse{courseCode='ATA122', name='Ataturk's Prin. & History II', credit=2, prerequisites=[], semester=2}": "AA",
+      "NonTechnicalElective{courseCode='BUS2005', name='International Business', credit=3, prerequisites=[], semester=2}": "BB",
+      "CompulsoryCourse{courseCode='MBG1201', name='Introduction to Modern Biology', credit=5, prerequisites=[], semester=1}": "FF",
+      "CompulsoryCourse{courseCode='TRD 122', name='Turkish Language II', credit=2, prerequisites=[], semester=2}": "DD",
+      "CompulsoryCourse{courseCode='EE2032', name='Electronics', credit=5, prerequisites=[CompulsoryCourse{courseCode='EE2031', name='Electric Circuits', credit=5, prerequisites=[CompulsoryCourse{courseCode='PHYS1102', name='Physics II', credit=4, prerequisites=[], semester=2}], semester=3}], semester=4}": "CC",
+      "CompulsoryCourse{courseCode='CSE3033', name='Operating Systems', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE2225', name='Data Structures', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=3}], semester=5}": "DC",
+      "NonTechnicalElective{courseCode='BUS1003', name='Entrepreneurship and Innovation', credit=3, prerequisites=[], semester=2}": "FD",
+      "CompulsoryCourse{courseCode='MATH1001', name='Calculus I', credit=6, prerequisites=[], semester=1}": "BA",
+      "CompulsoryCourse{courseCode='ECON2004', name='Engineering Economy', credit=4, prerequisites=[], semester=3}": "FD",
+      "CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}": "CB",
+      "CompulsoryCourse{courseCode='CSE2225', name='Data Structures', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=3}": "CB",
+      "CompulsoryCourse{courseCode='TRD121', name='Turkish Language I', credit=2, prerequisites=[], semester=1}": "FD",
+      "CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}": "CC",
+      "CompulsoryCourse{courseCode='CSE3055', name='Database Systems', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE2225', name='Data Structures', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=3}], semester=5}": "CC",
+      "CompulsoryCourse{courseCode='PHYS1104', name='Physics Lab II', credit=2, prerequisites=[], semester=2}": "FD",
+      "CompulsoryCourse{courseCode='MATH1002', name='Calculus II', credit=6, prerequisites=[], semester=2}": "CC",
+      "CompulsoryCourse{courseCode='CSE2023', name='Discrete Comp. Structures', credit=6, prerequisites=[], semester=3}": "DC",
+      "CompulsoryCourse{courseCode='CSE3063', name='Object-Oriented Software Desg.', credit=5, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=5}": "CB",
+      "CompulsoryCourse{courseCode='CSE2260', name='Principles of Prog. Languages', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=4}": "FF",
+      "CompulsoryCourse{courseCode='ATA121', name='Ataturk's Prin. & History I', credit=2, prerequisites=[], semester=1}": "DD",
+      "CompulsoryCourse{courseCode='MATH2256', name='Linear Algebra for Comp. Eng.', credit=5, prerequisites=[], semester=2}": "DC",
+      "CompulsoryCourse{courseCode='MATH2059', name='Numerical Methods', credit=4, prerequisites=[CompulsoryCourse{courseCode='MATH1001', name='Calculus I', credit=6, prerequisites=[], semester=1}], semester=3}": "AA",
+      "CompulsoryCourse{courseCode='PHYS1103', name='Physics Lab I', credit=2, prerequisites=[], semester=1}": "FF",
+      "CompulsoryCourse{courseCode='CSE1200', name='Introduction to Computer Eng', credit=4, prerequisites=[], semester=1}": "FD",
+      "CompulsoryCourse{courseCode='MATH2055', name='Differential Equations', credit=4, prerequisites=[], semester=3}": "BB",
+      "CompulsoryCourse{courseCode='STAT2253', name='Prob. and Stat. for Comp. Eng.', credit=5, prerequisites=[], semester=4}": "CB",
+      "NonTechnicalElective{courseCode='CAS1001', name='Self Management', credit=3, prerequisites=[], semester=2}": "BB",
+      "CompulsoryCourse{courseCode='PHYS1101', name='Physics I', credit=4, prerequisites=[], semester=1}": "AA",
+      "NonTechnicalElective{courseCode='BUS1004', name='Strategic Entrepreneurship', credit=3, prerequisites=[], semester=2}": "BA",
+      "CompulsoryCourse{courseCode='CSE2246', name='Analysis of Algorithms', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE2225', name='Data Structures', credit=7, prerequisites=[CompulsoryCourse{courseCode='CSE1242', name='Computer Programming II', credit=6, prerequisites=[CompulsoryCourse{courseCode='CSE1241', name='Computer Programming I', credit=6, prerequisites=[], semester=1}], semester=2}], semester=3}], semester=4}": "FD",
+      "CompulsoryCourse{courseCode='IE3081', name='Modeling and Disc. Simulation', credit=4, prerequisites=[CompulsoryCourse{courseCode='STAT2253', name='Prob. and Stat. for Comp. Eng.', credit=5, prerequisites=[], semester=4}], semester=5}": "FF",
+      "NonTechnicalElective{courseCode='CAS1010', name='Our Biosphere', credit=3, prerequisites=[], semester=2}": "BB",
+      "CompulsoryCourse{courseCode='CSE3215', name='Digital Logic Design', credit=6, prerequisites=[], semester=5}": "CB",
+      "CompulsoryCourse{courseCode='PHYS1102', name='Physics II', credit=4, prerequisites=[], semester=2}": "BB"
+    }
+  },
+  "approvalRequest": {
+    "isApproved": true,
+    "courses": [
+      {
+        "courseCode": "COM2276",
+        "name": "Tech. Comm. & Entrepreneurship",
+        "credit": 2,
+        "prerequisites": [],
+        "semester": 6
+      },
+      {
+        "courseCode": "CSE3044",
+        "name": "Software Engineering",
+        "credit": 7,
+        "prerequisites": [
+          {
+            "courseCode": "CSE3055",
+            "name": "Database Systems",
+            "credit": 7,
+            "prerequisites": [
+              {
+                "courseCode": "CSE2225",
+                "name": "Data Structures",
+                "credit": 7,
+                "prerequisites": [
+                  {
+                    "courseCode": "CSE1242",
+                    "name": "Computer Programming II",
+                    "credit": 6,
+                    "prerequisites": [
+                      {
+                        "courseCode": "CSE1241",
+                        "name": "Computer Programming I",
+                        "credit": 6,
+                        "prerequisites": [],
+                        "semester": 1
+                      }
+                    ],
+                    "semester": 2
+                  }
+                ],
+                "semester": 3
+              }
+            ],
+            "semester": 5
+          }
+        ],
+        "semester": 6
+      },
+      {
+        "courseCode": "CSE3264",
+        "name": "Formal Lang. & Auto. Theory",
+        "credit": 5,
+        "prerequisites": [
+          {
+            "courseCode": "CSE2023",
+            "name": "Discrete Comp. Structures",
+            "credit": 6,
+            "prerequisites": [],
+            "semester": 3
+          }
+        ],
+        "semester": 6
+      },
+      {
+        "courseCode": "CSE3038",
+        "name": "Computer Organization",
+        "credit": 7,
+        "prerequisites": [
+          {
+            "courseCode": "CSE3215",
+            "name": "Digital Logic Design",
+            "credit": 6,
+            "prerequisites": [],
+            "semester": 5
+          },
+          {
+            "courseCode": "CSE2138",
+            "name": "Systems Programming",
+            "credit": 7,
+            "prerequisites": [],
+            "semester": 4
+          }
+        ],
+        "semester": 6
+      },
+      {
+        "courseCode": "CSE3048",
+        "name": "Int. to Signals and Systems",
+        "credit": 5,
+        "prerequisites": [
+          {
+            "courseCode": "MATH2055",
+            "name": "Differential Equations",
+            "credit": 4,
+            "prerequisites": [],
+            "semester": 3
+          }
+        ],
+        "semester": 6
+      },
+      {
+        "courseCode": "IE3235",
+        "name": "Operations Research",
+        "credit": 4,
+        "prerequisites": [
+          {
+            "courseCode": "MATH2256",
+            "name": "Linear Algebra for Comp. Eng.",
+            "credit": 5,
+            "prerequisites": [],
+            "semester": 2
+          }
+        ],
+        "semester": 6
+      }
+    ]
+  },
+  "name": "Hasan",
+  "surname": "Karaeski"
+}
