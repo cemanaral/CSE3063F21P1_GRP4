@@ -46,7 +46,7 @@ public class Main {
         Main main = new Main();
 
         Path filepath = Paths.get(
-                System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "input.json");
+                System.getProperty("user.dir"), "iteration2", "src", "StudentRegistrationSystem", "input.json");
         System.out.println(filepath);
         JsonReader reader = new JsonReader(new FileReader(filepath.toString()));
 
@@ -221,7 +221,7 @@ public class Main {
     */
     private void createOutputDirectory() throws IOException {
         Path folderPath = Paths.get(
-                System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "output"
+                System.getProperty("user.dir"), "iteration2", "src", "StudentRegistrationSystem", "output"
         );
         File theDir = new File(folderPath.toString());
         if (theDir.exists()) {
@@ -238,7 +238,7 @@ public class Main {
         String filename = std.getStudentNumber() + ".json";
 
         Path path = Paths.get(
-                System.getProperty("user.dir"), "iteration1", "src", "StudentRegistrationSystem", "output", filename
+                System.getProperty("user.dir"), "iteration2", "src", "StudentRegistrationSystem", "output", filename
         );
 
         File file = new File(path.toString());

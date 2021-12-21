@@ -1,0 +1,118 @@
+{
+  "courses": {
+    "CompulsoryCourse": [
+
+      {"courseCode":"MATH1001","name":"Calculus I","credit":6, "semester": 1},
+      {"courseCode":"CSE1200","name":"Introduction to Computer Eng","credit":4, "semester": 1},
+      {"courseCode":"CSE1241","name":"Computer Programming I","credit":6, "semester": 1},
+      {"courseCode":"PHYS1101","name":"Physics I","credit":4, "semester": 1},
+      {"courseCode":"PHYS1103","name":"Physics Lab I","credit":2, "semester": 1},
+      {"courseCode":"ATA121","name":"Ataturk's Prin. & History I","credit":2, "semester": 1},
+      {"courseCode":"MBG1201","name":"Introduction to Modern Biology","credit":5, "semester": 1},
+      {"courseCode":"TRD121","name":"Turkish Language I","credit":2, "semester": 1},
+
+      {"courseCode":"MATH1002","name":"Calculus II","credit":6, "semester": 2},
+      {"courseCode":"PHYS1104","name":"Physics Lab II","credit":2, "semester": 2},
+      {"courseCode":"CSE1242","name":"Computer Programming II","credit":6, "semester": 2},
+      {"courseCode":"PHYS1102","name":"Physics II","credit":4, "semester": 2},
+      {"courseCode":"ATA122","name":"Ataturk's Prin. & History II","credit":2, "semester": 2},
+      {"courseCode":"MATH2256","name":"Linear Algebra for Comp. Eng.","credit":5, "semester": 2},
+      {"courseCode":"TRD 122","name":"Turkish Language II","credit":2, "semester": 2},
+
+      {"courseCode":"MATH2059","name":"Numerical Methods","credit":4, "semester": 3},
+      {"courseCode":"CSE2225","name":"Data Structures","credit":7, "semester": 3},
+      {"courseCode":"CSE2023","name":"Discrete Comp. Structures","credit":6, "semester": 3},
+      {"courseCode":"EE2031","name":"Electric Circuits","credit":5, "semester": 3},
+      {"courseCode":"ECON2004","name":"Engineering Economy","credit":4, "semester": 3},
+      {"courseCode":"MATH2055","name":"Differential Equations","credit":4, "semester": 3},
+
+      {"courseCode":"CSE2246","name":"Analysis of Algorithms","credit":6, "semester": 4},
+      {"courseCode":"CSE2260","name":"Principles of Prog. Languages","credit":6, "semester": 4},
+      {"courseCode":"EE2032","name":"Electronics","credit":5, "semester": 4},
+      {"courseCode":"CSE2138","name":"Systems Programming","credit":7, "semester": 4},
+      {"courseCode":"STAT2253","name":"Prob. and Stat. for Comp. Eng.","credit":5, "semester": 4},
+
+      {"courseCode":"CSE3055","name":"Database Systems","credit":7, "semester": 5},
+      {"courseCode":"CSE3033","name":"Operating Systems","credit":7, "semester": 5},
+      {"courseCode":"CSE3063","name":"Object-Oriented Software Desg.","credit":5, "semester": 5},
+      {"courseCode":"CSE3215","name":"Digital Logic Design","credit":6, "semester": 5},
+      {"courseCode":"IE3081","name":"Modeling and Disc. Simulation","credit":4, "semester": 5},
+
+      {"courseCode":"COM2276","name":"Tech. Comm. & Entrepreneurship","credit":2, "semester": 6},
+      {"courseCode":"CSE3044","name":"Software Engineering","credit":7, "semester": 6},
+      {"courseCode":"CSE3264","name":"Formal Lang. & Auto. Theory","credit":5, "semester": 6},
+      {"courseCode":"CSE3038","name":"Computer Organization","credit":7, "semester": 6},
+      {"courseCode":"CSE3048","name":"Int. to Signals and Systems","credit":5, "semester": 6},
+      {"courseCode":"IE3235","name":"Operations Research","credit":4, "semester": 6},
+
+      {"courseCode":"CSE4297","name":"Engineering Project I","credit":5, "semester": 7},
+      {"courseCode":"CSE4074","name":"Computer Networks","credit":5, "semester": 7},
+      {"courseCode":"CSE4219","name":"Prin. of Embed. System Design","credit":6, "semester": 7},
+      {"courseCode":"ISG121","name":"Work Safety I","credit":2, "semester": 7},
+      {"courseCode":"CSE4288","name":"Int. to Machine Learning","credit":5, "semester": 7},
+
+      {"courseCode":"CSE4298","name":"Engineering Project II","credit":5, "semester": 8},
+      {"courseCode":"ISG122","name":"Work Safety II","credit":2, "semester": 8}
+
+
+    ],
+    "FacultyElective": [
+      {"courseCode":"MGT4082","name":"Advanced innovative Design Management for Entrepreneurship","credit":5, "semester": 7},
+      {"courseCode":"MGT4084","name":"Innovation and New Product Development Management","credit":5, "semester": 7},
+      {"courseCode":"MGT4088","name":"Project Management for Engineers","credit":5, "semester": 7},
+
+      {"courseCode":"CSE4062","name":"Introduction to Data Science and Analytics","credit":5, "semester": 8},
+      {"courseCode":"EE4062","name":"Introduction to Image Processing","credit":5, "semester": 8},
+      {"courseCode":"IE4055","name":"Design of Experiments","credit":5, "semester": 8}
+    ],
+    "TechnicalElective": [
+      {"courseCode":"CSE4086","name":"Mobile Device Programming","credit":5, "semester": 7},
+      {"courseCode":"CSE4084","name":"Multimedia Systems","credit":5, "semester": 7},
+      {"courseCode":"CSE4065","name":"Introduction to Computational Genomics","credit":5, "semester": 7},
+      {"courseCode":"CSE4083","name":"Computer Graphics","credit":5, "semester": 7},
+
+      {"courseCode":"CSE4053","name":"Information Systems: Analysis and Design","credit":5, "semester": 8},
+      {"courseCode":"CSE4057","name":"Information Systems Security","credit":5, "semester": 8},
+      {"courseCode":"CSE4095","name":"Special Topics in Computer Engineering III","credit":5, "semester": 8},
+      {"courseCode":"CSE4026","name":"Introduction to Robotics and Control Theory","credit":5, "semester": 8}
+
+    ],
+    "NonTechnicalElective": [
+      {"courseCode":"BUS1003","name":"Entrepreneurship and Innovation","credit":3, "semester": 2},
+      {"courseCode":"BUS1004","name":"Strategic Entrepreneurship","credit":3, "semester": 2},
+      {"courseCode":"BUS2005","name":"International Business","credit":3, "semester": 2},
+      {"courseCode":"CAS1001","name":"Self Management","credit":3, "semester": 2},
+      {"courseCode":"CAS1010","name":"Our Biosphere","credit":3, "semester": 2},
+      {"courseCode":"CAS1061","name":"Geometric Origami","credit":3, "semester": 2},
+
+
+      {"courseCode":"CAS2001","name":"Energy for Physical Activity","credit":3, "semester": 8},
+      {"courseCode":"CAS2002","name":"Human Performance and Nutrition","credit":3, "semester": 8},
+      {"courseCode":"CAS2003","name":"Cardiopulmonary Resuscitation and First Aid Basics","credit":3, "semester": 8},
+      {"courseCode":"CAS2004","name":"Interpersonal Relations and Communication","credit":3, "semester": 8},
+      {"courseCode":"CAS2005","name":"Trekking and Orienteering","credit":3, "semester": 8}
+
+    ]
+  },
+  "prerequisites": {
+    "CSE1242": ["CSE1241"],
+    "MATH2059": ["MATH1001"],
+    "CSE2225": ["CSE1242"],
+    "EE2031": ["PHYS1102"],
+    "CSE2246": ["CSE2225"],
+    "CSE2260": ["CSE1242"],
+    "EE2032": ["EE2031"],
+    "CSE3055": ["CSE2225"],
+    "CSE3033": ["CSE2225"],
+    "CSE3063": ["CSE1242"],
+    "IE3081": ["STAT2253"],
+    "CSE3044": ["CSE3055"],
+    "CSE3264": ["CSE2023"],
+    "CSE3038": ["CSE3215", "CSE2138"],
+    "CSE3048": ["MATH2055"],
+    "IE3235": ["MATH2256"],
+    "CSE4219": ["CSE3038"],
+    "CSE4288": ["STAT2253", "MATH2256"]
+  },
+  "semester": "fall"
+}

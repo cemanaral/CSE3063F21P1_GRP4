@@ -1,27 +1,12 @@
 package StudentRegistrationSystem;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Transcript {
 	
 	private HashMap<Course, String> coursesTaken = new HashMap(); // Course -> String(lettergrade) , Course -> String(lettergrade), Course -> String(lettergrade)
 
-
-	public int getTotalCredits() {
-		int sum = 0;
-		for (HashMap.Entry<Course, String> pair: this.getCoursesTaken().entrySet()) {
-			Course course = pair.getKey();
-			String letterGrade = pair.getValue();
-
-			if (!List.of("FF", "FD").contains(letterGrade)) {
-				sum += course.getCredit();
-			}
-
-		}
-		return sum;
-	}
 
 	public float getGpa() {
 		Map<String, Double> gradeMap = new HashMap<>();
@@ -56,12 +41,6 @@ public class Transcript {
 
 	public HashMap<Course, String> getCoursesTaken() {
 		return coursesTaken;
-	}
-	@Override
-	public String toString() {
-		return "Transcript{" +
-				"coursesTaken=" + coursesTaken +
-				'}'+"student's GPA = "+getGpa();
 	}
 
 
