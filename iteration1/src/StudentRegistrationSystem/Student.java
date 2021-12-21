@@ -8,13 +8,14 @@ public class Student extends Person {
     private int semester;
     private Transcript transcript = new Transcript();
     private ApprovalRequest approvalRequest = new ApprovalRequest();
+    private Advisor advisor;
 
     //Student constructor. It inherits (name+surname) from Person class
-    public Student(String name, String surname, int studentNumber, int semester) {
+    public Student(String name, String surname, int studentNumber, int semester, Advisor advisor) {
         super(name, surname);            // name + surname comes from Person
-
         this.studentNumber = studentNumber;
         this.semester = semester;
+        this.advisor = advisor;
     }
 
     @Override
@@ -60,5 +61,14 @@ public class Student extends Person {
 
     public void setApprovalRequest(ApprovalRequest approvalRequest) {
         this.approvalRequest = approvalRequest;
+    }
+
+
+    public Advisor getAdvisor() {
+        return advisor;
+    }
+
+    public void setAdvisor(Advisor advisor) {
+        this.advisor = advisor;
     }
 }

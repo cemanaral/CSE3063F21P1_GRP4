@@ -6,7 +6,6 @@ public abstract class Course {
     private String courseCode;
     private String name;
     private int credit;
-    private Schedule schedule = new Schedule();
     private ArrayList <Course> prerequisites = new ArrayList<>();
     private int semester;
     
@@ -18,7 +17,6 @@ public abstract class Course {
         this.credit = credit;
         this.semester = semester;
         this.prerequisites = new ArrayList<Course>();
-        this.schedule = new Schedule();
     }
 
     // GETTERS AND SETTERS
@@ -50,16 +48,7 @@ public abstract class Course {
         this.name = name;
     }
 
-    public Schedule getSchedule() {
-        if (schedule==null) {
-            schedule = new Schedule();
-        }
-        return schedule;
-    }
 
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-    }
 
     public int getCredit() {
         return credit;
