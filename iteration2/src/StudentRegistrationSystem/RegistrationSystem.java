@@ -14,9 +14,14 @@ import java.nio.file.Paths;
 import java.util.*;
 
 
-// it is a singleton
+/**
+ * This class is used for RegistrationSystem checks
+ * which consists checking of prerequisites and credit limit
+ *
+ * Also this is a Singleton
+ * @see {@https://refactoring.guru/design-patterns/singleton/java/example}
+ */
 public class RegistrationSystem {
-
 
     private static RegistrationSystem instance = null;
 
@@ -24,7 +29,12 @@ public class RegistrationSystem {
 
     }
 
-
+    /**
+     * This method returns the
+     * only instance of RegistrationSystem
+     *
+     * @return the only single instance of RegistrationSystem
+     */
     public static RegistrationSystem getInstance() {
         if (instance == null)
             instance = new RegistrationSystem();
@@ -32,7 +42,12 @@ public class RegistrationSystem {
         return instance;
     }
 
-    // checks for every course
+    /**
+     * This method checks if a student is eligible to take
+     * the courses in ApprovalRequest in terms of prerequisites
+     * @param student
+     * @return is prerequisite satisfied?
+     */
     public boolean checkPrerequisitesSatisfied(Student student) {
         HashMap<Course, String> coursesTaken = student.getTranscript().getCoursesTaken();
 
@@ -49,7 +64,18 @@ public class RegistrationSystem {
 
         return true;
     }
-    // checks for single course
+
+    /**
+     * This method checks whether a <s>single</s>
+     * prerequisite was satisfied
+     * @see RegistrationSystem#checkPrerequisitesSatisfied
+
+     * @param student
+     * @param prerequisite
+     *
+     * @return a boolean that indicates a <s>single</s>
+     * prerequisite is satisfied or not
+     */
     public boolean checkSinglePrerequisiteSatisfied(Student student, Course prerequisite) {
         HashMap<Course, String> coursesTaken = student.getTranscript().getCoursesTaken();
         // if course is in students transcript and not FF or FD
@@ -61,6 +87,14 @@ public class RegistrationSystem {
         return false;
     }
 
+    /**
+     * This method returns a boolean that indicates
+     * whether the sum of credits of given student
+     * is above the limit (40) or not
+     *
+     * @param student
+     * @return is credit limit exceeded?
+     */
 
     public boolean checkCreditLimitExceeds(Student student) {
         // a student can not take more than 40 credits
@@ -95,7 +129,6 @@ public class RegistrationSystem {
         return false;
     }
 */
-
 
 
 }
