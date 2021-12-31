@@ -4,11 +4,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class encapsulates a Student's courses and grades
+ */
 public class Transcript {
 	
 	private HashMap<Course, String> coursesTaken = new HashMap(); // Course -> String(lettergrade) , Course -> String(lettergrade), Course -> String(lettergrade)
 
-
+	/**
+	 * This method calculates the sum
+	 * credits which a student completed
+	 *
+	 * @implNote FF and FD grades are assumed
+	 * to be failing grades (ie not completed)
+	 *
+	 * @return sum of completed credits
+	 */
 	public int getTotalCredits() {
 		int sum = 0;
 		for (HashMap.Entry<Course, String> pair: this.getCoursesTaken().entrySet()) {
@@ -23,6 +34,15 @@ public class Transcript {
 		return sum;
 	}
 
+	/**
+	 * Calculates the GPA in the transcript
+	 *
+	 * @implNote If there is no course, returns NaN
+	 * @implNote Turkey's grading system was used
+	 * @see @{https://en.wikipedia.org/wiki/Grading_systems_by_country#Turkey}
+	 *
+	 * @return Float indicating the GPA of given Student
+	 */
 	public float getGpa() {
 		Map<String, Double> gradeMap = new HashMap<>();
 		gradeMap.put("AA", 4.00);
@@ -50,6 +70,13 @@ public class Transcript {
 
 	}
 
+	/**
+	 * This method adds a course and grade achieved
+	 * to transcript
+	 *
+	 * @param course Course object to be added to Transcript
+	 * @param letterGrade String that indicates the letter grade
+	 */
 	public void addCourseAndLetterGrade(Course course, String letterGrade) {
 		this.coursesTaken.put(course, letterGrade);
 	}
