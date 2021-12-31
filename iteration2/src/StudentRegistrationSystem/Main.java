@@ -14,6 +14,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
+/**
+ * This is the main driver class for our project.
+ */
 public class Main {
     // number of students to be created
     private final int noOfStudents = 100;
@@ -36,6 +39,24 @@ public class Main {
     // Used for assigning random grades to transcripts
     private final String[] gradeList={"AA","BA","BB","CB","CC","DC","DD","FD","FF"};
 
+    /**
+     * This method parses Course objects
+     * from intput.json
+     *
+     * Creates random students, assigns Advisors
+     * adds parsed Course objects and
+     * assigns randomized letter grades for them
+     *
+     * Enrolls students to current semesters courses
+     * Runs checks in both RegistrationSystem and Advisor side
+     *
+     * Prints unaccepted ApprovalRequests to console
+     *
+     * And finally serializes every student object to output directory
+     *
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         ArrayList<Student> studentList  = new ArrayList<>();
         ArrayList<Advisor> advisorList = new ArrayList<>();
@@ -215,10 +236,13 @@ public class Main {
         }
     }
 
-    /*
-        Creates output folder.
-        Deletes output json files from past executions
-    */
+
+    /**
+     * Creates output folder.
+     * Deletes output json files from past executions
+     *
+     * @throws IOException
+     */
     private void createOutputDirectory() throws IOException {
         Path folderPath = Paths.get(
                 System.getProperty("user.dir"), "iteration2", "src", "StudentRegistrationSystem", "output"
@@ -230,9 +254,14 @@ public class Main {
         theDir.mkdir();
     }
 
-    /*
-        Outputs a single Student object to json file
-    */
+    /**
+     * Outputs a single Student object to json file
+     * where filename is Student's id
+     *
+     * @param std student to be serialized
+     * @param gson gson driver used in serialization
+     * @throws IOException
+     */
     private void writeStudentToJson(Student std, Gson gson) throws IOException {
         // System.out.println(gson.toJson(student1));
         String filename = std.getStudentNumber() + ".json";
@@ -249,9 +278,16 @@ public class Main {
         output_stream.close();
     }
 
-    /*
-        Finds course object from an array from courseName string
-    */
+    /**
+     * Finds course object from an array
+     * from courseName string
+     *
+     * @param courseName Course object's name to be found
+     * @param courses Where the search is made
+     * @return Course object
+     *
+     * @throws RuntimeException if course is not found in courses parameter
+     */
     private Course findCourseByName(String courseName, Course[] courses) {
         for (Course course: courses) {
             if (course.getCourseCode().equals(courseName) ){
