@@ -1,5 +1,10 @@
 package StudentRegistrationSystem;
 
+/**
+ * This class represents non technical elective course
+ *
+ * @see {@link Course}
+ */
 public class NonTechnicalElective extends ElectiveCourse {
 
 	public NonTechnicalElective(String courseCode, String name, int credit, int semester) {

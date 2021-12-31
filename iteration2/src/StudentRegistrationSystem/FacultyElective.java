@@ -1,4 +1,11 @@
 package StudentRegistrationSystem;
+
+/**
+ * This class represents faculty technical elective courses
+ * (ie FTE)
+ *
+ * @see {@link Course}
+ */
 public class FacultyElective extends ElectiveCourse {
 
 	public FacultyElective(String courseCode, String name, int credit, int semester) {

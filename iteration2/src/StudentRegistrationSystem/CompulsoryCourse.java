@@ -1,5 +1,10 @@
 package StudentRegistrationSystem;
 
+/**
+ * This class represents compulsory courses
+ *
+ * @see {@link Course}
+ */
 public class CompulsoryCourse extends Course{
 
     public CompulsoryCourse(String courseCode, String name, int credit, int semester) {

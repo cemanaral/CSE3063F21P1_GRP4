@@ -1,6 +1,10 @@
 package StudentRegistrationSystem;
 import java.util.ArrayList;
 
+/**
+ * This class is used to
+ * encapsulate Course information
+ */
 public abstract class Course {
 // Attributes
     private String courseCode;
