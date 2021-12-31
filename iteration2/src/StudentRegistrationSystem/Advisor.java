@@ -8,6 +8,7 @@ import java.util.List;
  * This class is used for utilizing
  * necessary checks in Advisor side
  *
+ * @see {@link Person}
  */
 public class Advisor extends Person {
 

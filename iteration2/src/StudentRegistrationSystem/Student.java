@@ -1,6 +1,11 @@
 package StudentRegistrationSystem;
 import java.util.ArrayList;
 
+/**
+ * This class represents a student
+ *
+ * @see {@link Person}
+ */
 public class Student extends Person {
 
     //Student's attributes
