@@ -66,14 +66,14 @@ public class RegistrationSystem {
     }
 
     /**
-     * This method checks whether a <s>single</s>
+     * This method checks whether a <em>single</em>
      * prerequisite was satisfied
      * @see RegistrationSystem#checkPrerequisitesSatisfied
 
      * @param student
      * @param prerequisite
      *
-     * @return a boolean that indicates a <s>single</s>
+     * @return a boolean that indicates a <em>single</em>
      * prerequisite is satisfied or not
      */
     public boolean checkSinglePrerequisiteSatisfied(Student student, Course prerequisite) {
