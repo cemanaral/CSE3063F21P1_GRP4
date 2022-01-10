@@ -1,5 +1,6 @@
 from simulation import *
 
+
 def main():
     simulation = Simulation(
         student_creator=RandomStudentCreator(),
