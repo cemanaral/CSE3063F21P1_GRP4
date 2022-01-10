@@ -16,6 +16,9 @@ class Simulation:
         self.__start_subsystems()
         self.__load_data_from_subsystems()
 
+        for c in self.__courses: print(c)
+        for s in self.__students: print(s)
+
 
     def __start_subsystems(self):
         for subsystem in self.__subsystems.values():
@@ -53,7 +56,6 @@ class RandomStudentCreator(Subsystem):
         self.__no_of_students = data['person']['no_of_students']
 
     def start(self):
-        print("RandomStudentCreator is executing")
         self.__load_json_file()
         self.__create_students()
     
@@ -77,7 +79,7 @@ class RandomStudentCreator(Subsystem):
 
 class RandomAdvisorCreator(Subsystem):
     def start(self):
-        print("RandomAdvisorCreator is executing")
+        pass
 
     @property
     def loaded_data(self):
@@ -90,7 +92,6 @@ class CourseLoader(Subsystem):
         self.__loaded_courses = []
 
     def start(self):
-        print("CourseLoader is executing")
         self.__load_json_file()
         self.__load_courses_from_json()
         self.__load_prerequisites()
