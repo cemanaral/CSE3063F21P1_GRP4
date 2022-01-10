@@ -2,9 +2,9 @@ from simulation import *
 
 def main():
     simulation = Simulation(
-        RandomStudentCreator(),
-        RandomAdvisorCreator(),
-        CourseLoader(),
+        student_creator=RandomStudentCreator(),
+        advisor_creator=RandomAdvisorCreator(),
+        course_loader=CourseLoader(),
     )
     simulation.start_simulation()
 

@@ -1,10 +1,11 @@
 class Simulation:
-    def __init__(self, *subsystems):
-        self.__subsystems = subsystems
+    def __init__(self, **kwargs):
+        self.__subsystems = kwargs
 
     def start_simulation(self):
-        for subsystem in self.__subsystems:
+        for subsystem in self.__subsystems.values():
             subsystem.start()
+
 
 
 class RandomStudentCreator:
