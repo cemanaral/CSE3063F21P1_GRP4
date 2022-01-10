@@ -13,14 +13,14 @@ class Simulation:
     def start_simulation(self):
         self.__start_subsystems()
         self.__load_data_from_subsystems()
-        print(self.__courses)
+
 
     def __start_subsystems(self):
         for subsystem in self.__subsystems.values():
             subsystem.start()
 
     def __load_data_from_subsystems(self):
-        self.__courses = self.__subsystems['course_loader'].loaded_courses
+        self.__courses = self.__subsystems['course_loader'].loaded_data
 
 
 class Subsystem(AbstractBaseClass):
@@ -28,16 +28,26 @@ class Subsystem(AbstractBaseClass):
     def start(self):
         raise NotImplementedError()
 
+    @abstractmethod
+    def loaded_data(self):
+        raise NotImplementedError()
+
 
 class RandomStudentCreator(Subsystem):
     def start(self):
         print("RandomStudentCreator is executing")
 
+    @property
+    def loaded_data(self):
+        pass
 
 class RandomAdvisorCreator(Subsystem):
     def start(self):
         print("RandomAdvisorCreator is executing")
 
+    @property
+    def loaded_data(self):
+        pass
 
 class CourseLoader(Subsystem):
     def __init__(self, json_file_name: str):
@@ -91,10 +101,10 @@ class CourseLoader(Subsystem):
 
 
     def __find_course_object_from_code(self, course_code: str) -> Course:
-        for course in self.loaded_courses:
+        for course in self.loaded_data:
             if course.course_code == course_code:
                 return course
 
     @property
-    def loaded_courses(self):
+    def loaded_data(self):
         return self.__loaded_courses
