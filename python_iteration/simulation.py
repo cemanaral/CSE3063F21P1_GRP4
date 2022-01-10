@@ -42,18 +42,22 @@ class RandomAdvisorCreator(Subsystem):
 class CourseLoader(Subsystem):
     def __init__(self, json_file_name: str):
         self.__json_file_name = json_file_name
+        self.__json_file_dict = {}
         self.__loaded_courses = []
 
     def start(self):
         print("CourseLoader is executing")
+        self.__load_json_file()
         self.__load_courses_from_json()
         self.__load_prerequisites()
 
-    def __load_courses_from_json(self):
+    def __load_json_file(self):
         with open(self.__json_file_name, 'r') as file_in:
             data = json.load(file_in)
-        
-        for course_type, course_dicts in data['courses'].items():
+        self.__json_file_dict = data
+
+    def __load_courses_from_json(self):    
+        for course_type, course_dicts in self.__json_file_dict['courses'].items():
             for course_dict in course_dicts:
                 self.__load_course_from_dict(course_dict, eval(course_type))
 
@@ -79,10 +83,7 @@ class CourseLoader(Subsystem):
         self.__loaded_courses.append(course)
 
     def __load_prerequisites(self):
-        with open(self.__json_file_name, 'r') as file_in:
-            data = json.load(file_in)
-        
-        for course_code, prerequisite_codes in data['prerequisites'].items():
+        for course_code, prerequisite_codes in self.__json_file_dict['prerequisites'].items():
             course = self.__find_course_object_from_code(course_code)
             for prerequisite_code in prerequisite_codes:
                 prerequisite = self.__find_course_object_from_code(prerequisite_code)
