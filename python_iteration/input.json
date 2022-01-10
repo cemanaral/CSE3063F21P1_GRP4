@@ -117,6 +117,8 @@
   "semester": "fall",
 
   "person": {
+    "no_of_students": 100,
+    "no_of_advisors": 10,
     "first_names": ["Ali","Veli","Halil","Can","Ayse","Mehmet",
       "Cem","Sena","Mert","Yusuf","Melisa","Zeynep","Hasan",
       "Berke","Yasin","Murat","Hasan","Mert","Ahmet","Tugba",
