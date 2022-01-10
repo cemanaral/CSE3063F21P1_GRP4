@@ -114,5 +114,16 @@
     "CSE4219": ["CSE3038"],
     "CSE4288": ["STAT2253", "MATH2256"]
   },
-  "semester": "fall"
+  "semester": "fall",
+
+  "person": {
+    "first_names": ["Ali","Veli","Halil","Can","Ayse","Mehmet",
+      "Cem","Sena","Mert","Yusuf","Melisa","Zeynep","Hasan",
+      "Berke","Yasin","Murat","Hasan","Mert","Ahmet","Tugba",
+      "Gizem","Ozlem","Fatih","Ramiz","Ezel","Utku","Omer",
+      "Eylem","Asli","Osman"],
+    "last_names": ["Ozturk","Ganiz","Bayraktar","Yilmaz","Tas","Kerim",
+      "Karaeski","Alemdar","Bas","Yeter","Dundar","Yildiz","Kaya",
+      "Erden","Marmara","Ege","Karadeniz","Akdeniz","Dogan","Ulas"]
+  }
 }
