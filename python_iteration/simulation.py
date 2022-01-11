@@ -18,7 +18,7 @@ class Simulation:
 
         for c in self.__courses: print(c)
         for s in self.__students: print(s)
-
+        for a in self.__advisors: print(a)
 
     def __start_subsystems(self):
         for subsystem in self.__subsystems.values():
@@ -27,6 +27,7 @@ class Simulation:
     def __load_data_from_subsystems(self):
         self.__courses = self.__subsystems['course_loader'].loaded_data
         self.__students = self.__subsystems['student_creator'].loaded_data
+        self.__advisors = self.__subsystems['advisor_creator'].loaded_data
 
 
 class Subsystem(AbstractBaseClass):
@@ -47,7 +48,6 @@ class RandomStudentCreator(Subsystem):
         self.__no_of_students = 0
         self.__created_students = []
 
-
     def __load_json_file(self):
         with open(self.__json_file_name, 'r') as file_in:
             data = json.load(file_in)
@@ -58,7 +58,7 @@ class RandomStudentCreator(Subsystem):
     def start(self):
         self.__load_json_file()
         self.__create_students()
-    
+
     def __create_students(self):
         for i in range(self.__no_of_students):
             self.__create_single_student()
@@ -77,13 +77,41 @@ class RandomStudentCreator(Subsystem):
     def loaded_data(self):
         return self.__created_students
 
+
 class RandomAdvisorCreator(Subsystem):
+    def __init__(self, json_file_name):
+        self.__json_file_name = json_file_name
+        self.__first_names = []
+        self.__last_names = []
+        self.__no_of_advisors = 0
+        self.__created_advisors = []
+
     def start(self):
-        pass
+        self.__load_json_file()
+        self.__create_advisors()
 
     @property
     def loaded_data(self):
-        pass
+        return self.__created_advisors
+
+    def __load_json_file(self):
+        with open(self.__json_file_name, 'r') as file_in:
+            data = json.load(file_in)
+        self.__first_names = data['person']['first_names']
+        self.__last_names = data['person']['last_names']
+        self.__no_of_advisors = data['person']['no_of_advisors']
+
+    def __create_advisors(self):
+        for i in range(self.__no_of_advisors):
+            self.__create_single_advisor()
+
+    def __create_single_advisor(self):
+        first_name = random.choice(self.__first_names)
+        last_name = random.choice(self.__last_names)
+        self.__created_advisors.append(
+            Advisor(first_name, last_name)
+        )
+
 
 class CourseLoader(Subsystem):
     def __init__(self, json_file_name: str):
@@ -101,12 +129,10 @@ class CourseLoader(Subsystem):
             data = json.load(file_in)
         self.__json_file_dict = data
 
-    def __load_courses_from_json(self):    
+    def __load_courses_from_json(self):
         for course_type, course_dicts in self.__json_file_dict['courses'].items():
             for course_dict in course_dicts:
                 self.__load_course_from_dict(course_dict, eval(course_type))
-
-
 
     def __load_course_from_dict(self, course_dict: dict, course_type: Course) -> Course:
         # since credits of
@@ -133,7 +159,6 @@ class CourseLoader(Subsystem):
             for prerequisite_code in prerequisite_codes:
                 prerequisite = self.__find_course_object_from_code(prerequisite_code)
                 course.add_prerequisite(prerequisite)
-
 
     def __find_course_object_from_code(self, course_code: str) -> Course:
         for course in self.loaded_data:
