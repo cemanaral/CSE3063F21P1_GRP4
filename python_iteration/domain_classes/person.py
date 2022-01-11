@@ -1,5 +1,6 @@
 from abc import ABC as AbstractBaseClass
-
+from .transcript import Transcript
+from .approval_request import ApprovalRequest
 
 class Person(AbstractBaseClass):
     def __init__(self, first_name, last_name):
@@ -24,6 +25,8 @@ class Student(Person):
         self.__student_no = student_no
         self.__semester = semester
         self.__advisor = advisor
+        self.__transcript = Transcript()
+        self.__approval_request = ApprovalRequest()
 
     def __str__(self) -> str:
         return ' '.join([
@@ -32,7 +35,9 @@ class Student(Person):
             self.last_name,
             str(self.__student_no),
             'semester:', str(self.__semester),
-            'advisor:', str(self.__advisor)
+            'advisor:', str(self.__advisor),
+            'transcript:', str(self.__transcript),
+            'approval request:', str(self.__approval_request)
         ])
 
     @property
@@ -42,6 +47,13 @@ class Student(Person):
     @advisor.setter
     def advisor(self, advisor):
         self.__advisor = advisor
+
+    # from information expert
+    def add_course(self, course):
+        if self.__semester > course.semester:
+            self.__transcript.add_past_course(course)
+        elif self.__semester == course.semester:
+            self.__approval_request.add_current_course(course)
 
 
 class Advisor(Person):

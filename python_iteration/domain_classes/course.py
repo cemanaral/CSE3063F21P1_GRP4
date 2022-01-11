@@ -14,17 +14,21 @@ class Course(AbstractBaseClass):
         self.__prerequisites.append(course)
 
     @property
+    def semester(self):
+        return self.__semester
+
+    @property
     def course_code(self):
         return self.__course_code
 
     def __str__(self) -> str:
         return ' '.join([
-            type(self).__name__,
+            # type(self).__name__,
             self.__course_code,
             self.__name,
-            'semester:', str(self.__semester),
-            'credit:', str(self.__credit),
-            'prerequisites:', str(self.__prerequisites)
+            # 'semester:', str(self.__semester),
+            # 'credit:', str(self.__credit),
+            # 'prerequisites:', str(self.__prerequisites)
         ])
 
     def __repr__(self) -> str:

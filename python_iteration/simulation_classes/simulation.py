@@ -1,3 +1,5 @@
+import itertools
+
 class Simulation:
     def __init__(self, json_file_name, **kwargs):
         self.__json_file_name = json_file_name
@@ -10,11 +12,11 @@ class Simulation:
         self.__start_subsystems()
         self.__load_data_from_subsystems()
         self.__assign_advisors()
+        self.__add_courses_to_students()
 
-
-        for c in self.__courses: print(c)
+        # for c in self.__courses: print(c)
         for s in self.__students: print(s)
-        for a in self.__advisors: print(a)
+        # for a in self.__advisors: print(a)
 
     def __start_subsystems(self):
         for subsystem in self.__subsystems.values():
@@ -29,3 +31,7 @@ class Simulation:
         no_of_advisors = len(self.__advisors)
         for i, student in enumerate(self.__students):
             student.advisor = self.__advisors[i % no_of_advisors]
+
+    def __add_courses_to_students(self):
+        for student, course in itertools.product(self.__students, self.__courses):
+            student.add_course(course)
