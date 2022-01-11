@@ -37,6 +37,11 @@ class Transcript:
                 total_completed_credits += course.credit
         return total_completed_credits
 
+    @property
+    def past_courses(self):
+        return self.__past_courses
+
+
     def __str__(self):
         return ' '.join([
             'completed credits:', str(self.completed_credits),

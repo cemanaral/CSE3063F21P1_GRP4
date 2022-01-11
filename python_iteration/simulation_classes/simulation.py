@@ -4,6 +4,7 @@ import logging
 import os
 import shutil
 
+
 class Simulation:
     def __init__(self, json_file_name, **kwargs):
         self.__json_file_name = json_file_name
@@ -50,9 +51,11 @@ class Simulation:
             'first_name': student.first_name,
             'last_name': student.last_name,
             'semester': student.semester,
-            'advisor': str(student.advisor),
-            'transcript': str(student.transcript),
-            'approval_request': str(student.approval_request)
+            'advisor': str(student.advisor.first_name + ' ' + student.advisor.last_name),
+            'completed_credits': student.transcript.completed_credits,
+            'transcript': [{course.course_code: grade}  for course, grade in student.transcript.past_courses.items()],
+            'is_approved': student.approval_request.is_approved,
+            'added_courses': [course.course_code for course in student.approval_request.current_courses]
         }
         return json.dumps(student_dict, indent=4)
 
