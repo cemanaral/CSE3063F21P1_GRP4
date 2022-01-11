@@ -1,6 +1,7 @@
 from abc import ABC as AbstractBaseClass
 from os import name
 
+
 class Course(AbstractBaseClass):
     def __init__(self, course_code: str, name: str, semester: int, credit: int):
         self.__course_code = course_code
@@ -25,22 +26,25 @@ class Course(AbstractBaseClass):
             'credit:', str(self.__credit),
             'prerequisites:', str(self.__prerequisites)
         ])
-    
+
     def __repr__(self) -> str:
         return self.__str__()
-            
+
 
 class CompulsoryCourse(Course):
     def __init__(self, course_code, name, semester, credit):
         super().__init__(course_code, name, semester, credit)
 
+
 class FacultyElective(Course):
     def __init__(self, course_code, name, semester):
         super().__init__(course_code, name, semester, 5)
 
+
 class TechnicalElective(Course):
     def __init__(self, course_code, name, semester):
         super().__init__(course_code, name, semester, 5)
+
 
 class NonTechnicalElective(Course):
     def __init__(self, course_code, name, semester):
