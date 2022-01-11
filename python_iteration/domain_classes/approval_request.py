@@ -1,10 +1,10 @@
-from .course import FacultyElective
+from .course import FacultyElective, TechnicalElective
 
 
 class ApprovalRequest:
     def __init__(self):
         self.__current_courses = []
-        self.__is_approved = None
+        self.__is_approved = True
 
     def add_current_course(self, course):
         self.__current_courses.append(course)
@@ -23,6 +23,16 @@ class ApprovalRequest:
                 if isinstance(course, FacultyElective):
                     return False  # should not be approved
         return True  # no problem
+
+    # from information expert
+    def check_two_te_in_fall(self, student):
+        no_of_te = 0
+        if student.semester == 7:
+            for course in self.__current_courses:
+                if isinstance(course, TechnicalElective):
+                    no_of_te += 1
+
+        return False if no_of_te > 2 else True
 
     def total_credits(self):
         total_credits = 0
