@@ -1,5 +1,6 @@
 class Simulation:
-    def __init__(self, **kwargs):
+    def __init__(self, json_file_name, **kwargs):
+        self.__json_file_name = json_file_name
         self.__subsystems = kwargs
         self.__students = []
         self.__advisors = []
@@ -15,7 +16,7 @@ class Simulation:
 
     def __start_subsystems(self):
         for subsystem in self.__subsystems.values():
-            subsystem.start()
+            subsystem.start(self.__json_file_name)
 
     def __load_data_from_subsystems(self):
         self.__courses = self.__subsystems['course_loader'].loaded_data

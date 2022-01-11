@@ -6,9 +6,10 @@ from simulation_classes.simulation import Simulation
 
 def main():
     simulation = Simulation(
-        student_creator=RandomStudentCreator(json_file_name='input.json'),
-        advisor_creator=RandomAdvisorCreator(json_file_name='input.json'),
-        course_loader=CourseLoader(json_file_name='input.json'),
+        'input.json',
+        student_creator=RandomStudentCreator(),
+        advisor_creator=RandomAdvisorCreator(),
+        course_loader=CourseLoader(),
     )
     simulation.start_simulation()
 

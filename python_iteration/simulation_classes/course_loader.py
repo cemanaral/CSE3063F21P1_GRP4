@@ -5,18 +5,17 @@ from simulation_classes.subsystem import Subsystem
 
 
 class CourseLoader(Subsystem):
-    def __init__(self, json_file_name: str):
-        self.__json_file_name = json_file_name
+    def __init__(self):
         self.__json_file_dict = {}
         self.__loaded_courses = []
 
-    def start(self):
-        self.__load_json_file()
+    def start(self, json_file_name):
+        self.__load_json_file(json_file_name)
         self.__load_courses_from_json()
         self.__load_prerequisites()
 
-    def __load_json_file(self):
-        with open(self.__json_file_name, 'r') as file_in:
+    def __load_json_file(self, json_file_name):
+        with open(json_file_name, 'r') as file_in:
             data = json.load(file_in)
         self.__json_file_dict = data
 
@@ -25,7 +24,7 @@ class CourseLoader(Subsystem):
             for course_dict in course_dicts:
                 self.__load_course_from_dict(course_dict, eval(course_type))
 
-    def __load_course_from_dict(self, course_dict: dict, course_type: Course) -> Course:
+    def __load_course_from_dict(self, course_dict: dict, course_type) -> Course:
         # since credits of
         # compulsory courses may vary
         # we take it from json

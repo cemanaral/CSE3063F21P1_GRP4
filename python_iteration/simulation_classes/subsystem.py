@@ -3,7 +3,7 @@ from abc import ABC as AbstractBaseClass, abstractmethod
 
 class Subsystem(AbstractBaseClass):
     @abstractmethod
-    def start(self):
+    def start(self, json_file_name):
         raise NotImplementedError()
 
     @abstractmethod

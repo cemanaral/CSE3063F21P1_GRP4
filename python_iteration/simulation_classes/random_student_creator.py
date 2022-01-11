@@ -6,22 +6,21 @@ from simulation_classes.subsystem import Subsystem
 
 
 class RandomStudentCreator(Subsystem):
-    def __init__(self, json_file_name: str):
-        self.__json_file_name = json_file_name
+    def __init__(self):
         self.__first_names = []
         self.__last_names = []
         self.__no_of_students = 0
         self.__created_students = []
 
-    def __load_json_file(self):
-        with open(self.__json_file_name, 'r') as file_in:
+    def __load_json_file(self, json_file_name):
+        with open(json_file_name, 'r') as file_in:
             data = json.load(file_in)
         self.__first_names = data['person']['first_names']
         self.__last_names = data['person']['last_names']
         self.__no_of_students = data['person']['no_of_students']
 
-    def start(self):
-        self.__load_json_file()
+    def start(self, json_file_name):
+        self.__load_json_file(json_file_name)
         self.__create_students()
 
     def __create_students(self):
