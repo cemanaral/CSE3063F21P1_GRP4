@@ -5,7 +5,7 @@ import os
 import shutil
 
 
-class Simulation:
+class RegistrationSystem:
     def __init__(self, json_file_name, **kwargs):
         self.__json_file_name = json_file_name
         self.__subsystems = kwargs
