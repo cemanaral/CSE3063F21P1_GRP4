@@ -1,4 +1,5 @@
 import itertools
+import json
 
 
 class Simulation:
@@ -8,11 +9,19 @@ class Simulation:
         self.__students = []
         self.__advisors = []
         self.__courses = []
+        self.__semester = ""
 
         self.__count_not_approved_due_credit_limit = 0
         self.__count_not_approved_due_prerequisites = 0
+        self.__count_not_approved_due_fte_in_fall = 0
+
+    def __load_semester_info_from_json(self):
+        with open(self.__json_file_name, 'r') as file_in:
+            data = json.load(file_in)
+        self.__semester = data['semester']
 
     def start_simulation(self):
+        self.__load_semester_info_from_json()
         self.__start_subsystems()
         self.__load_data_from_subsystems()
         self.__assign_advisors()
@@ -44,7 +53,8 @@ class Simulation:
     def __run_checks(self):
         self.__run_credit_limit_check()
         self.__run_prerequisite_check()
-        # self.__run_fte_in_fall_check()
+        if self.__semester == 'fall':
+            self.__run_fte_in_fall_check()
         # self.__run_engineering_project_status_check()
         # self.__run_fall_two_te_check()
 
@@ -66,9 +76,13 @@ class Simulation:
                     approval_request.is_approved = False
                     self.__count_not_approved_due_prerequisites += 1
 
-
     def __run_fte_in_fall_check(self):
-        pass
+        for student in self.__students:
+            approval_request = student.approval_request
+            passed_check = approval_request.check_fte_in_fall(student)
+            if not passed_check:
+                approval_request.is_approved = False
+                self.__count_not_approved_due_fte_in_fall += 1
 
     def __run_engineering_project_status_check(self):
         pass

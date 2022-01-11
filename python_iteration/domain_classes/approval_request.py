@@ -1,3 +1,6 @@
+from .course import FacultyElective
+
+
 class ApprovalRequest:
     def __init__(self):
         self.__current_courses = []
@@ -10,6 +13,15 @@ class ApprovalRequest:
     def check_credit_limit(self):
         if self.total_credits() > 40:
             return False  # should not be approved
+        return True  # no problem
+
+    # from information expert
+    def check_fte_in_fall(self, student):
+        student_semester = student.semester
+        if student_semester == 7:
+            for course in self.__current_courses:
+                if isinstance(course, FacultyElective):
+                    return False  # should not be approved
         return True  # no problem
 
     def total_credits(self):
