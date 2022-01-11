@@ -21,6 +21,14 @@ class Course(AbstractBaseClass):
     def course_code(self):
         return self.__course_code
 
+    @property
+    def credit(self):
+        return self.__credit
+
+    @property
+    def prerequisites(self):
+        return self.__prerequisites
+
     def __str__(self) -> str:
         return ' '.join([
             # type(self).__name__,

@@ -20,6 +20,15 @@ class Transcript:
         grade = random.choice(list(self.__grades.keys()))
         self.__past_courses[course] = grade
 
+    def check_prerequisite_satisfied(self, course):
+        prerequisites = course.prerequisites
+        for prereq in prerequisites:
+            in_transcript = prereq in self.__past_courses
+            passed_grade = self.__past_courses.get(prereq)
+            if not in_transcript or passed_grade in ('FD', 'FF'):
+                return False  # should not be approved
+        return True  # no problem
+
     def __str__(self):
         return ' '.join([
             type(self).__name__,

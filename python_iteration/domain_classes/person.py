@@ -2,6 +2,7 @@ from abc import ABC as AbstractBaseClass
 from .transcript import Transcript
 from .approval_request import ApprovalRequest
 
+
 class Person(AbstractBaseClass):
     def __init__(self, first_name, last_name):
         self.__first_name = first_name
@@ -47,6 +48,14 @@ class Student(Person):
     @advisor.setter
     def advisor(self, advisor):
         self.__advisor = advisor
+
+    @property
+    def approval_request(self):
+        return self.__approval_request
+
+    @property
+    def transcript(self):
+        return self.__transcript
 
     # from information expert
     def add_course(self, course):
