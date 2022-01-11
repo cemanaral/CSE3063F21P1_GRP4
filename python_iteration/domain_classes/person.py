@@ -35,6 +35,14 @@ class Student(Person):
             'advisor:', str(self.__advisor)
         ])
 
+    @property
+    def advisor(self):
+        return self.__advisor
+
+    @advisor.setter
+    def advisor(self, advisor):
+        self.__advisor = advisor
+
 
 class Advisor(Person):
     def __init__(self, first_name, last_name):
