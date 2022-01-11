@@ -42,6 +42,10 @@ class Student(Person):
         ])
 
     @property
+    def student_no(self):
+        return self.__student_no
+
+    @property
     def semester(self):
         return self.__semester
 

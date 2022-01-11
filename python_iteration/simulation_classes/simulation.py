@@ -1,5 +1,7 @@
 import itertools
 import json
+import logging
+import os
 
 
 class Simulation:
@@ -22,17 +24,31 @@ class Simulation:
             data = json.load(file_in)
         self.__semester = data['semester']
 
+    def __setup_logger(self):
+        if os.path.exists('output.log'):
+            os.remove('output.log')
+        logging.basicConfig(filename='output.log', level=logging.INFO)
+
+    def __write_students_to_json(self):
+        pass
+
+    def __write_statistics_to_log(self):
+        logging.info(f"number of students not approved due to credit limit: {self.__count_not_approved_due_credit_limit}")
+        logging.info(f"number of students not approved due to unsatisfied prerequisites: {self.__count_not_approved_due_prerequisites}")
+        logging.info(f"number of students not approved due to having fte in fall: {self.__count_not_approved_due_fte_in_fall}")
+        logging.info(f"number of students not approved due to not being eligible to take graduation project: {self.__count_not_approved_due_engineering_project_status}")
+        logging.info(f"number of students not approved due to having more than two TE in fall: {self.__count_not_approved_due_fall_two_te}")
+
     def start_simulation(self):
+        self.__setup_logger()
         self.__load_semester_info_from_json()
         self.__start_subsystems()
         self.__load_data_from_subsystems()
         self.__assign_advisors()
         self.__add_courses_to_students()
         self.__run_checks()
-
-        # for c in self.__courses: print(c)
-        for s in self.__students: print(s)
-        # for a in self.__advisors: print(a)
+        self.__write_students_to_json()
+        self.__write_statistics_to_log()
 
     def __start_subsystems(self):
         for subsystem in self.__subsystems.values():
@@ -67,6 +83,7 @@ class Simulation:
             if not passed_check:
                 approval_request.is_approved = False
                 self.__count_not_approved_due_credit_limit += 1
+                logging.info(f"{student.student_no} not approved because of exceeding credit limit (>40)")
 
     def __run_prerequisite_check(self):
         for student in self.__students:
@@ -77,6 +94,7 @@ class Simulation:
                 if not passed_check:
                     approval_request.is_approved = False
                     self.__count_not_approved_due_prerequisites += 1
+                    logging.info(f"{student.student_no} not approved because of unsatisfied prerequisites.")
 
     def __run_fte_in_fall_check(self):
         for student in self.__students:
@@ -85,6 +103,7 @@ class Simulation:
             if not passed_check:
                 approval_request.is_approved = False
                 self.__count_not_approved_due_fte_in_fall += 1
+                logging.info(f"{student.student_no} not approved because of having FTE in fall.")
 
     def __run_engineering_project_status_check(self):
         for student in self.__students:
@@ -93,6 +112,8 @@ class Simulation:
                 approval_request = student.approval_request
                 approval_request.is_approved = False
                 self.__count_not_approved_due_engineering_project_status += 1
+                logging.info(f"{student.student_no} not approved because not eligible to take engineering project ("
+                             f"completed credits < 165 or not in semester 7-8)")
 
     def __run_fall_two_te_check(self):
         for student in self.__students:
@@ -101,4 +122,4 @@ class Simulation:
             if not passed_check:
                 approval_request.is_approved = False
                 self.__count_not_approved_due_fall_two_te += 1
-
+                logging.info(f"{student.student_no} not approved because having more than 2 TE in fall.")
