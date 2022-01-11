@@ -87,7 +87,6 @@ class Advisor(Person):
 
     def __str__(self) -> str:
         return ' '.join([
-            type(self).__name__,
             self.first_name,
             self.last_name,
         ])

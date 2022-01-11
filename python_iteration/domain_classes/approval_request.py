@@ -54,9 +54,9 @@ class ApprovalRequest:
 
     def __str__(self):
         return ' '.join([
-            type(self).__name__,
+            'is approved:', str(self.__is_approved),
+            'total credits:', str(self.total_credits()),
             'current courses:', str(self.__current_courses),
-            'is approved:', str(self.__is_approved)
         ])
 
     def __repr__(self):

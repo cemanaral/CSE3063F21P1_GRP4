@@ -39,8 +39,8 @@ class Transcript:
 
     def __str__(self):
         return ' '.join([
-            type(self).__name__,
-            'past courses:', str(self.__past_courses)
+            'completed credits:', str(self.completed_credits),
+            'past courses:', str(self.__past_courses),
         ])
 
     def __repr__(self):

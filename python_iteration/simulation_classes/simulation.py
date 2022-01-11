@@ -2,7 +2,7 @@ import itertools
 import json
 import logging
 import os
-
+import shutil
 
 class Simulation:
     def __init__(self, json_file_name, **kwargs):
@@ -18,6 +18,7 @@ class Simulation:
         self.__count_not_approved_due_fte_in_fall = 0
         self.__count_not_approved_due_engineering_project_status = 0
         self.__count_not_approved_due_fall_two_te = 0
+        self.__output_json_path = ""
 
     def __load_semester_info_from_json(self):
         with open(self.__json_file_name, 'r') as file_in:
@@ -29,15 +30,43 @@ class Simulation:
             os.remove('output.log')
         logging.basicConfig(filename='output.log', level=logging.INFO)
 
+    def __setup_json_folder(self):
+        self.__output_json_path = os.path.join(os.getcwd(), 'output_jsons')
+        if os.path.exists(self.__output_json_path):
+            shutil.rmtree(self.__output_json_path)
+        os.makedirs(self.__output_json_path)
+
     def __write_students_to_json(self):
-        pass
+        self.__setup_json_folder()
+        for student in self.__students:
+            student_json = self.__convert_student_to_json(student)
+            file_path = os.path.join(self.__output_json_path, '{}.json'.format(str(student.student_no)))
+            with open(file_path, 'w') as file:
+                file.write(student_json)
+
+    def __convert_student_to_json(self, student):
+        student_dict = {
+            'student_no': student.student_no,
+            'first_name': student.first_name,
+            'last_name': student.last_name,
+            'semester': student.semester,
+            'advisor': str(student.advisor),
+            'transcript': str(student.transcript),
+            'approval_request': str(student.approval_request)
+        }
+        return json.dumps(student_dict, indent=4)
 
     def __write_statistics_to_log(self):
-        logging.info(f"number of students not approved due to credit limit: {self.__count_not_approved_due_credit_limit}")
-        logging.info(f"number of students not approved due to unsatisfied prerequisites: {self.__count_not_approved_due_prerequisites}")
-        logging.info(f"number of students not approved due to having fte in fall: {self.__count_not_approved_due_fte_in_fall}")
-        logging.info(f"number of students not approved due to not being eligible to take graduation project: {self.__count_not_approved_due_engineering_project_status}")
-        logging.info(f"number of students not approved due to having more than two TE in fall: {self.__count_not_approved_due_fall_two_te}")
+        logging.info(
+            f"number of students not approved due to credit limit: {self.__count_not_approved_due_credit_limit}")
+        logging.info(
+            f"number of students not approved due to unsatisfied prerequisites: {self.__count_not_approved_due_prerequisites}")
+        logging.info(
+            f"number of students not approved due to having fte in fall: {self.__count_not_approved_due_fte_in_fall}")
+        logging.info(
+            f"number of students not approved due to not being eligible to take graduation project: {self.__count_not_approved_due_engineering_project_status}")
+        logging.info(
+            f"number of students not approved due to having more than two TE in fall: {self.__count_not_approved_due_fall_two_te}")
 
     def start_simulation(self):
         self.__setup_logger()
