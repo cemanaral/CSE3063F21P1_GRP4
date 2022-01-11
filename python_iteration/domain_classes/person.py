@@ -68,6 +68,14 @@ class Student(Person):
         elif self.__semester == course.semester:
             self.__approval_request.add_current_course(course)
 
+    # from information expert
+    def check_engineering_project_status(self):
+        semester = self.__semester
+        completed_credits = self.__transcript.completed_credits
+        if completed_credits < 165 and semester in (7, 8):
+            return False  # should not be approved
+        return True  # no problem
+
 
 class Advisor(Person):
     def __init__(self, first_name, last_name):

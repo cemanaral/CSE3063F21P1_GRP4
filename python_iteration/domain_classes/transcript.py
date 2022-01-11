@@ -29,6 +29,14 @@ class Transcript:
                 return False  # should not be approved
         return True  # no problem
 
+    @property
+    def completed_credits(self):
+        total_completed_credits = 0
+        for course, grade in self.__past_courses.items():
+            if grade not in ('FF', 'FD'):
+                total_completed_credits += course.credit
+        return total_completed_credits
+
     def __str__(self):
         return ' '.join([
             type(self).__name__,
