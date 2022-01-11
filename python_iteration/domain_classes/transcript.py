@@ -42,6 +42,7 @@ class Transcript:
         return self.__past_courses
 
 
+
     def __str__(self):
         return ' '.join([
             'completed credits:', str(self.completed_credits),
